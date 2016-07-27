@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400; }
+
+#header {
+  height: 600px;
+  overflow: hidden;
+  background-color: #383f51;
+  background: url(../img/carousel/image4.jpg) center center;
+  background-size: cover; }
+  #header .banner {
+    position: absolute;
+    top: 20px;
+    left: 40px; }
+  #header #nav {
+    position: absolute;
+    top: 20px;
+    right: 40px; }
+    #header #nav input {
+      width: 400px;
+      height: 50px;
+      text-align: center;
+      font-size: 24px;
+      color: #6d6a75; }
+    #header #nav ul {
+      list-style-type: none; }
+      #header #nav ul li {
+        float: left;
+        padding-left: 10px; }
+        #header #nav ul li a:link, #header #nav ul li a:visited {
+          display: block;
+          text-align: center;
+          font-size: 24px;
+          font-weight: 900;
+          font-family: "Raleway", sans-serif;
+          text-shadow: 0px 0px 3px #383f51;
+          width: 150px;
+          height: 50px;
+          line-height: 50px;
+          color: #dce1e9;
+          background-color: rgba(0, 0, 0, 0.2); }
+        #header #nav ul li a:hover, #header #nav ul li a:active {
+          background-color: #fff;
+          color: #383f51;
+          text-decoration: none;
+          text-shadow: 0px 0px 0px #000; }
+        #header #nav ul li #search {
+          position: absolute;
+          height: 50px;
+          width: 50px;
+          font-size: 24px;
+          border: solid 0 #fff;
+          margin-right: 15px;
+          top: 10px; }
+          #header #nav ul li #search a:link, #header #nav ul li #search a:visited {
+            color: #000; }
+        #header #nav ul li ul.menu li {
+          display: none;
+          float: none;
+          position: relative;
+          z-index: 1; }
+          #header #nav ul li ul.menu li a:link, #header #nav ul li ul.menu li a:visited {
+            text-align: left;
+            text-shadow: 0px 0px 0px #000;
+            text-indent: 25px;
+            font-size: 16px;
+            font-weight: 300;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff;
+            color: #383f51;
+            margin: -1px 0 0 -10px; }
+          #header #nav ul li ul.menu li a:hover, #header #nav ul li ul.menu li a:active {
+            color: #deb841; }
+      #header #nav ul li:hover ul.menu li {
+        display: block;
+        opacity: 0; }
+        #header #nav ul li:hover ul.menu li:nth-child(1) {
+          animation-name: submenu;
+          animation-duration: 200ms;
+          animation-timing-function: ease-in-out;
+          animation-fill-mode: forwards; }
+        #header #nav ul li:hover ul.menu li:nth-child(2) {
+          animation-name: submenu;
+          animation-duration: 400ms;
+          animation-timing-function: ease-in-out;
+          animation-fill-mode: forwards; }
+        #header #nav ul li:hover ul.menu li:nth-child(3) {
+          animation-name: submenu;
+          animation-duration: 600ms;
+          animation-timing-function: ease-in-out;
+          animation-fill-mode: forwards; }
+        #header #nav ul li:hover ul.menu li:nth-child(4) {
+          animation-name: submenu;
+          animation-duration: 800ms;
+          animation-timing-function: ease-in-out;
+          animation-fill-mode: forwards; }
+
+@keyframes submenu {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+  #header #carousel {
+    width: 100%;
+    font-family: "Raleway", sans-serif; }
+    #header #carousel .left-arrow, #header #carousel .right-arrow {
+      font-size: 30px;
+      line-height: 50px;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      display: block;
+      top: 275px; }
+      #header #carousel .left-arrow a:link, #header #carousel .left-arrow a:visited, #header #carousel .right-arrow a:link, #header #carousel .right-arrow a:visited {
+        display: block;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.2);
+        color: #fff; }
+      #header #carousel .left-arrow a:hover, #header #carousel .left-arrow a:active, #header #carousel .right-arrow a:hover, #header #carousel .right-arrow a:active {
+        background-color: #dce1e9;
+        color: #383f51; }
+    #header #carousel .left-arrow {
+      left: 0px; }
+    #header #carousel .right-arrow {
+      right: 0px; }
+    #header #carousel .tabs {
+      position: absolute;
+      top: 550px;
+      width: 100%; }
+      #header #carousel .tabs a:link, #header #carousel .tabs a:visited {
+        color: #dce1e9;
+        padding: 0 2px; }
+      #header #carousel .tabs a:hover, #header #carousel .tabs a:active {
+        color: #deb841; }
+    #header #carousel .content {
+      color: #fff;
+      text-shadow: 0px 0px 3px #383f51;
+      position: relative;
+      font-size: 32px;
+      text-align: right;
+      bottom: 50%;
+      width: 800px;
+      left: 50%;
+      top: 250px;
+      margin-left: -400px; }
+      #header #carousel .content span {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 4px 10px;
+        margin: 5px;
+        font-weight: 200;
+        font-family: "Raleway", sans-serif; }
+      #header #carousel .content strong {
+        font-family: "Raleway", sans-serif;
+        font-weight: 900; }
+      #header #carousel .content i {
+        font-family: "Raleway", sans-serif;
+        font-weight: 200; }
+
+#content h1 {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  border-bottom: 3px solid #6d6a75;
+  line-height: 0;
+  padding: 0;
+  margin: 10px 0 30px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #6d6a75; }
+  #content h1 span {
+    background-color: #fff;
+    padding: 0 15px; }
+
+#content .content-wrapper-1 {
+  padding: 60px 0 60px 0; }
+
+#content .content-wrapper-2 {
+  padding: 60px 0 60px 0;
+  background-color: #dce1e9; }
+  #content .content-wrapper-2 .item .img {
+    border: solid 4px #dce1e9; }
+  #content .content-wrapper-2 h1 span {
+    background-color: #dce1e9; }
+
+#content .item {
+  float: left;
+  padding: 0 10px 15px 10px; }
+  #content .item .img {
+    margin: 0 0 5px 0;
+    border: solid 4px #fff; }
+  #content .item .info .price {
+    font-weight: 700; }
+  #content .item .info .discount {
+    font-weight: 400;
+    text-decoration: line-through;
+    color: #e00; }
+
+#content .item:hover .img {
+  border: solid 4px #000; }
+
+#content .more {
+  width: 250px;
+  height: 100px;
+  position: relative;
+  margin-left: -125px;
+  left: 50%;
+  float: left;
+  background-color: #eee; }
+  #content .more ul {
+    list-style-type: none;
+    margin: 0 auto; }
+    #content .more ul li {
+      float: left;
+      padding: 5px; }
+
+#mailing-list {
+  background-color: #bfbdc1;
+  padding: 20px 0 20px;
+  color: #fff; }
+  #mailing-list input {
+    padding: 5px 10px;
+    color: #000; }
+
+#footer {
+  background-color: #6d6a75;
+  padding: 20px 0 20px; }
+  #footer h4 {
+    font-weight: 700;
+    color: #fff; }
+  #footer ul li {
+    color: #dce1e9; }
+    #footer ul li a:link, #footer ul li a:visited {
+      color: #dce1e9; }
+    #footer ul li a:hover, #footer ul li a:active {
+      color: #6d6a75;
+      background-color: #dce1e9; }
+  #footer .copyright {
+    color: #dce1e9; }

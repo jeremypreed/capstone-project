@@ -1,0 +1,251 @@
+//-- Colors
+$color1: rgba(56, 63, 81, 1);
+$color2: rgba(109, 106, 117, 1);
+$color3: rgba(191, 189, 193, 1);
+$color4: rgba(222, 184, 65, 1);
+$color5: rgba(220, 225, 233, 1);
+$transparentbg: rgba(0,0,0,.2);
+
+//-- Fonts
+$raleway: 'Raleway', sans-serif;
+$sourcesans: 'Source Sans Pro', sans-serif;
+
+*
+	margin: 0
+	padding: 0
+	font-family: $sourcesans
+	font-weight: 400
+
+//-- Header
+#header
+	height: 600px
+	overflow: hidden
+	background-color: $color1
+	background: url(../img/carousel/image4.jpg) center center
+	background-size: cover
+	.banner
+		position: absolute
+		top: 20px
+		left: 40px
+	
+	//-- Nav
+	#nav
+		position: absolute
+		top: 20px
+		right: 40px
+		input
+			width: 400px
+			height: 50px
+			text-align: center
+			font-size: 24px	
+			color: $color2
+		ul
+			list-style-type: none
+			li
+				float: left
+				padding-left: 10px
+				a:link,a:visited
+					display: block
+					text-align: center
+					font-size: 24px	
+					font-weight: 900
+					font-family: $raleway
+					text-shadow: 0px 0px 3px $color1
+					width: 150px
+					height: 50px
+					line-height: 50px
+					color: $color5
+					background-color: $transparentbg
+				a:hover,a:active
+					background-color: #fff
+					color: $color1
+					text-decoration: none
+					text-shadow: 0px 0px 0px #000
+				#search
+					position: absolute
+					height: 50px
+					width: 50px
+					font-size: 24px	
+					border: solid 0 #fff
+					margin-right: 15px
+					top: 10px
+					a:link, a:visited
+						color: #000
+				//-- Dropdown Menu
+				ul.menu li
+					display: none
+					float: none
+					position: relative
+					z-index: 1
+					a:link, a:visited
+						text-align: left
+						text-shadow: 0px 0px 0px #000
+						text-indent: 25px
+						font-size: 16px	
+						font-weight: 300	
+						width: 150px
+						height: 50px
+						line-height: 50px
+						background-color: #fff
+						color: $color1
+						margin: -1px 0 0 -10px
+					a:hover, a:active
+						color: $color4
+			li:hover
+				ul.menu li
+					display: block
+					opacity: 0
+					
+					@for $i from 1 through 4
+						&:nth-child(#{$i})
+							animation:
+								name: submenu
+								duration: 200ms * $i
+								timing-function: ease-in-out
+								fill-mode: forwards
+						
+				@keyframes submenu
+					0%
+						opacity: 0
+					100%
+						opacity: 1
+	//-- Carousel
+	#carousel
+		width: 100%
+		font-family: $raleway
+		.left-arrow, .right-arrow
+			font-size: 30px
+			line-height: 50px
+			width: 50px
+			height: 50px
+			position: absolute
+			display: block
+			top: 275px
+			a:link,a:visited
+				display: block
+				width: 50px
+				height: 50px
+				background-color: $transparentbg
+				color: #fff
+			a:hover,a:active
+				background-color: $color5
+				color: $color1
+		.left-arrow
+			left: 0px
+		.right-arrow
+			right: 0px
+		.tabs
+			position: absolute
+			top: 550px
+			width: 100%
+			a:link,a:visited
+				color: $color5
+				padding: 0 2px
+			a:hover,a:active
+				color: $color4
+		.content
+			color: #fff
+			text-shadow: 0px 0px 3px $color1
+			position: relative
+			font-size: 32px
+			text-align: right
+			bottom: 50%
+			width: 800px
+			left: 50%
+			top: 250px
+			margin-left: -400px
+			span
+				background-color: $transparentbg
+				padding: 4px 10px
+				margin: 5px
+				font-weight: 200
+				font-family: $raleway
+			strong
+				font-family: $raleway
+				font-weight: 900
+			i
+				font-family: $raleway
+				font-weight: 200
+//-- Content
+#content
+	h1
+		font-family: $raleway
+		text-align: center
+		border-bottom: 3px solid $color2
+		line-height: 0
+		padding: 0
+		margin: 10px 0 30px 0
+		text-transform: uppercase
+		letter-spacing: 2px
+		color: $color2
+		span
+			background-color: #fff
+			padding: 0 15px
+	.content-wrapper-1
+		padding: 60px 0 60px 0
+	.content-wrapper-2
+		padding: 60px 0 60px 0
+		background-color: $color5
+		.item
+			.img
+				border: solid 4px $color5
+		h1
+			span
+				background-color: $color5
+	.item
+		float: left
+		padding: 0 10px 15px 10px
+		.img
+			margin: 0 0 5px 0
+			border: solid 4px #fff
+		.info
+			.title
+			.price
+				font-weight: 700
+			.discount
+				font-weight: 400
+				text-decoration: line-through
+				color: #e00
+	.item:hover
+		.img
+			border: solid 4px #000
+	.more
+		width: 250px
+		height: 100px
+		position: relative
+		margin-left: -125px
+		left: 50%
+		float: left
+		background-color: #eee
+		ul
+			list-style-type: none
+			margin: 0 auto
+			li
+				float: left
+				padding: 5px
+				
+//-- Footer
+#mailing-list
+	background-color: $color3
+	padding: 20px 0 20px
+	color: #fff
+	input
+		padding: 5px 10px
+		color: #000
+#footer
+	background-color: $color2
+	padding: 20px 0 20px
+	h4
+		font-weight: 700
+		color: #fff
+	ul
+		li
+			color: $color5
+			a:link, a:visited
+				color: $color5
+			a:hover, a:active
+				color: $color2
+				background-color: $color5
+	.copyright
+		color: $color5
+			
