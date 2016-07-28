@@ -17,6 +17,77 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	font-weight: 400
 
 //-- Header
+#header.navbar-fixed-top
+	height: 60px !important
+	background-color: $color1
+	background-image: none
+	overflow: visible
+	.banner
+		top: 5px !important
+		width: 250px
+		height: 50px !important
+	#nav-info
+		opacity: 0 !important
+	#nav
+		position: absolute
+		top: -5px !important
+		input
+			width: 550px
+			color: $color2
+		ul
+			#search-bar
+				margin-top: 0 !important
+			#search
+				margin-top: 0 !important
+			li
+				a:link,a:visited
+					background-color: rgba(0,0,0,0)
+				a:hover,a:active
+					background-color: #fff
+	#carousel
+		display: none // temporary until separated /w php
+#header.normal
+	height: 120px
+	background-color: $color1
+	background-image: none
+	transition: all 0.4s ease
+	.banner
+		top: 10px
+		width: 250px
+		height: 100px
+	#nav-info
+		position: absolute
+		right: 40px
+		top: 70px
+		color: #fff
+		opacity: 1
+		ul
+			list-style-type: none
+			li
+				float: left
+				width: 150px
+				margin-left: 10px
+				text-align: center
+	#nav
+		position: absolute !important
+		top: 10px
+		transition: all 0.4s ease-in-out
+		input
+			width: 550px
+			color: $color2
+		ul
+			#search-bar
+				margin-top: 15px
+				#search
+					margin-top: 15px
+			li
+				a:link,a:visited
+					background-color: rgba(0,0,0,0)
+				a:hover,a:active
+					background-color: #fff
+	#carousel
+		display: none // temporary until separated /w php
+	
 #header
 	height: 600px
 	overflow: hidden
@@ -30,15 +101,17 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	
 	//-- Nav
 	#nav
-		position: absolute
+		position: fixed
 		top: 20px
 		right: 40px
+		transition: all 0.4s ease
 		input
 			width: 400px
 			height: 50px
 			text-align: center
 			font-size: 24px	
 			color: $color2
+			transition: all 0.4s ease
 		ul
 			list-style-type: none
 			li
@@ -71,6 +144,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 					top: 10px
 					a:link, a:visited
 						color: #000
+						background-color: #fff
 				//-- Dropdown Menu
 				ul.menu li
 					display: none
@@ -188,16 +262,52 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		background-color: $color5
 		.item
 			.img
-				border: solid 4px $color5
+				border: solid 3px $color5
+	.content-wrapper-3
+		margin: 20px 0 20px 0
+		.sidenav
+			.fixed
+				position: fixed
+				top: 80px
+				width: 220px
+				transition: all 0.4s ease
+			.panel-heading
+				margin: 0
+				padding: 0
+				h4
+					font-family: $raleway
+					font-size: 30px
+					font-weight: 700
+					background-color: $color2
+					color: #fff
+					text-align: center
+					padding: 5px 0 5px 0
+			ul
+				list-style-type: square
+				margin-left: 20px
+				font-size: 18px
+		.item
+			.img
+				border: solid 3px #fff
 		h1
 			span
 				background-color: $color5
+	.departments-content
+
 	.item
 		float: left
 		padding: 0 10px 15px 10px
+		opacity: 0							// Invisible when loaded
+		transform: scale(.5)				// Half scale when loaded
+		-webkit-transform: scale(.5)		// Chrome, Safari, Moz
+		transition: all 0.4s ease-in-out	// Animation duration & style
+		&.visible		// Class makes visible when added
+			opacity: 1						// Visible opacity
+			transform: scale(1)				// 100% Scale
+			-webkit-transform: scale(1)		// Chrome, Safari, Moz
 		.img
 			margin: 0 0 5px 0
-			border: solid 4px #fff
+			border: solid 3px #fff
 		.info
 			.title
 			.price
@@ -206,9 +316,10 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 				font-weight: 400
 				text-decoration: line-through
 				color: #e00
+				margin-right: 6px
 	.item:hover
 		.img
-			border: solid 4px #000
+			border: solid 3px $color1
 	.more
 		width: 250px
 		height: 100px
