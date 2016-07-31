@@ -2,4 +2,5 @@
 /* Jeremy Reed */
 
 //include "home.htm";
-include "departments.htm";
+//include "departments.htm";
+include "product.htm";
