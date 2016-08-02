@@ -274,7 +274,12 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 				background-color: $color5
 	.content-wrapper-3
 		margin: 20px 0 20px 0
-		.sidenav
+		.panel-content
+			//background-color: $color3
+			border: solid 1px $color5
+			border-left: none
+			border-radius: 3px
+			font-size: 16px
 			#accordion
 				width: 220px
 			.fixed
@@ -297,9 +302,48 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 				list-style-type: none
 				margin-left: 20px
 				font-size: 18px
+				li.current-page
+					background-color: $color5
+					font-weight: bold
+					border-radius: 3px
+				li.name
+					font-weight: bold
 		.item
 			.img
 				border: solid 3px transparent
+		.main-content
+			.cart
+				padding: 20px 0 20px 0
+				font-size: 16px
+				border-radius: 3px
+				hr
+					border-top: solid 1px $color5
+				.cart-head
+					background-color: $color3
+					color: #fff
+					font-weight: bold
+					font-size: 18px
+					margin: 0 0 5px 0
+					padding: 5px
+					padding-right: 20px
+				.cart-img
+					img
+						width: 75%
+						height: auto
+				.cart-desc
+					padding: 20px 0 0 0
+				.cart-items
+					padding: 40px 0 0 0
+					font-size: 24px
+				.cart-price
+					padding: 40px 20px 0 0
+					font-size: 24px
+				.cart-subtotal
+					font-size: 28px
+			.alt
+				background-color: $color5
+			.no-padding
+				padding: 0
 	.item
 		float: left
 		padding: 0 10px 15px 10px

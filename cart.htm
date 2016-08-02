@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" /> <!-- Bootstrap CSS -->
+	<link href='https://fonts.googleapis.com/css?family=Raleway:200italic,400,400italic,700,900' rel='stylesheet' type='text/css'> <!-- Google Font Raleway -->
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,200' rel='stylesheet' type='text/css'> <!-- Google Font Source Sans -->
+	<script src="https://use.fontawesome.com/84aba4ed8a.js"></script> <!-- Font Awesome -->
+	<script src="js/lib/jquery.min.js"></script> <!-- jQuery -->
+	<script src="js/lib/bootstrap.min.js"></script> <!-- Bootstrap JS-->
+	<script src="js/javascript.js"></script>	
+
+
+</head>
+<body>
+
+<!-- Header -->
+<section id="header" class="normal">
+	<img src="http://placehold.it/400x200" class="banner">
+		
+	<div id="nav">	
+		<nav>
+			<ul>
+				<li id="search-bar"><input type="text"><a href="#" class="search-icon"><i class="fa fa-search fw" aria-hidden="true"></i></a></li>
+				<li>
+					<a href="#">Shop</a>
+					<ul class="menu">
+						<li><a href="#">Men</a></li>
+						<li><a href="#">Women</a></li>
+						<li><a href="#">Boys</a></li>
+						<li><a href="#">Girls</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Cart (0)</a>
+					<ul class="menu">
+						<li><a href="#" class="cart">No items.</a></li>
+						<li><a href="#">Checkout</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Account</a>
+					<ul class="menu">
+						<li><a href="#">Login</a></li>
+						<li><a href="#">Register</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	
+	<div id="nav-info">
+		<ul>
+			<li>&nbsp;</li>
+			<li>$0.00</li>
+			<li>Guest</li>
+		</ul>
+	</div>
+	
+	<div id="carousel">
+		<div class="left-arrow text-center"><a href="#"><i class="fa fa-angle-left fa-lg fw" aria-hidden="true"></i></a></div>
+		<div class="right-arrow text-center"><a href="#"><i class="fa fa-angle-right fa-lg fw" aria-hidden="true"></i></a></div>
+		<div class="tabs text-center">
+			<a href="#"><i class="fa fa-circle-thin fa-lg fw" aria-hidden="true"></i></a>
+			<a href="#"><i class="fa fa-circle fa-lg fw" aria-hidden="true"></i></a>
+			<a href="#"><i class="fa fa-circle-thin fa-lg fw" aria-hidden="true"></i></a>
+			<a href="#"><i class="fa fa-circle-thin fa-lg fw" aria-hidden="true"></i></a>
+		</div>
+		<div class="content">
+			<span><strong>Cashmere Collection!</strong></span><br>
+			<span>Take <strong>20% off</strong> all winter scarves.</span><br>
+			<span><i>Limited Time Only!</i></span>
+		</div>
+	</div>
+</section>
+
+<!-- Content -->
+<div id="content">
+	<section class="content-wrapper-3 container-fluid">	
+		<div class="row">
+			<div class="col-md-3 column panel-content">
+
+			<!-- Logged out -->
+			<h3>Account Panel</h3>
+			<p><a href="register.php">Register</a> to save your cart, manage wishlists, and more.</p>
+			<p><a href="login.php">Log in</a>, if you already have an account.</p>
+			
+			<!-- Logged in -->
+			<ul>
+				<li class="name">First Last</li>
+				<li>0 Reward Points</li>
+				<li>0 Orders</li>
+			</ul>
+			
+			<h3>My Account</h3>
+			<ul class="fa-ul">
+				<li><i class="fa-li fa fa-angle-right"></i>Profile</li>
+				<li class="current-page"><i class="fa-li fa fa-angle-right"></i>Shopping Cart</li>
+				<li><i class="fa-li fa fa-angle-right"></i>Order History</li>
+				<li><i class="fa-li fa fa-angle-right"></i>Track Package</li>
+				<li><i class="fa-li fa fa-angle-right"></i>Manage Wishlists</li>
+				<li><i class="fa-li fa fa-angle-right"></i>Log out</li>
+			</ul>
+			
+			</div>
+			<div class="col-md-9 main-content">	
+			
+				<div class="container-fluid">
+					<h2>Shopping Cart</h2>
+
+					<div class="row cart no-padding">
+						<div class="col-md-7"></div>
+						<div class="col-md-2 cart-head text-center">Quantity</div>
+						<div class="col-md-3 cart-head text-right">Price</div>
+					</div>
+					
+					<div class="row cart">
+						<div class="col-md-2 cart-img text-center"><img src="http://placehold.it/250x400"></div>
+						<div class="col-md-5 cart-desc">
+							<h4>This is an item</h4>
+							<p>This is the items description</p>
+						</div>
+						<div class="col-md-2 cart-items text-center">
+							<select>
+								<option disabled>Quantity</option>
+								<option value="1" selected>1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
+						<div class="col-md-3 cart-price text-right">$8.99</div>
+					</div>
+					
+					<div class="row cart alt">
+						<div class="col-md-2 cart-img text-center"><img src="http://placehold.it/250x400"></div>
+						<div class="col-md-5 cart-desc">
+							<h4>This is an item</h4>
+							<p>This is the items description</p>
+						</div>
+						<div class="col-md-2 cart-items text-center">
+							<select>
+								<option disabled>Quantity</option>
+								<option value="1" selected>1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
+						<div class="col-md-3 cart-price text-right">$8.99</div>
+					</div>
+					
+					<div class="row cart">
+						<div class="col-md-2 cart-img text-center"><img src="http://placehold.it/250x400"></div>
+						<div class="col-md-5 cart-desc">
+							<h4>This is an item</h4>
+							<p>This is the items description</p>
+						</div>
+						<div class="col-md-2 cart-items text-center">
+							<select>
+								<option disabled>Quantity</option>
+								<option value="1" selected>1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
+						<div class="col-md-3 cart-price text-right">$8.99</div>
+					</div>
+					
+					<div class="row cart no-padding">
+						<div class="col-md-9"></div>
+						<div class="col-md-3 cart-head text-right">Subtotal</div>
+					</div>
+					
+					<div class="row cart text-right">
+						<div class="col-md-9"></div>
+						<div class="col-md-3 cart-subtotal">(3 items) $50.82</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</section>
+</div>
+
+<!-- Mailing list -->
+<div class="container-fluid text-center" id="mailing-list">
+		<h2>Join the mailing list: <input type="text" placeholder="email@address.com"> <input type="submit" value="Join"></h2>
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-3 column">
+                <h4>Section</h4>
+                <ul class="nav">
+                    <li><a href="#">#</a></li>
+                    <li><a href="#">#</a></li>
+                    <li><a href="#">#</a></li>
+                    <li><a href="#">#</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-6 col-md-3 column">
+                <h4>Section</h4>
+                <ul class="nav">
+                    <li><a href="#">#</a></li>
+                    <li><a href="#">#</a></li>
+                    <li><a href="#">#</a></li>
+                    <li><a href="#">#</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-6 col-md-3 column">
+                <h4>Connect</h4>
+                <ul class="nav">
+                    <li><a href="#"><i class="fa fa-facebook-square fa-lg fw" aria-hidden="true"></i> &nbsp; Facebook</a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square fa-lg fw" aria-hidden="true"></i> &nbsp; Twitter</a></li>
+                    <li><a href="#"><i class="fa fa-instagram fa-lg fw" aria-hidden="true"></i> &nbsp; Instagram</a></li>
+                </ul>
+            </div>
+			<div class="col-xs-6 col-md-3 column">
+                <h4>Contact</h4>
+                <ul class="nav">
+                    <li><br></li>
+                    <li>Monday - Friday</li>
+                    <li>8 am - 5 pm</li>
+                    <li><br></li>
+                    <li><strong>Email:</strong> support@website.com</li>
+                    <li><strong>Tel:</strong> (555) 555-5555</li>
+                </ul>
+            </div>
+		</div>
+    </div>
+</footer>
+<section id="copyright" class="container">
+	<p class="copyright text-right">© 2016 Website Name</p>
+</section>
+
+</body>
+</html>
