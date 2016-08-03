@@ -4,7 +4,7 @@ $color2: rgba(158, 188, 158, 1);
 $color3: rgba(67, 89, 85, 1);
 $color4: rgba(109, 199, 117, 1);
 $color5: rgba(237, 237, 237, 1);
-$transparentbg: rgba(67, 89, 85, .2);
+$transparentbg: rgba(67, 89, 85, .75);
 
 //-- Fonts
 $raleway: 'Raleway', sans-serif;
@@ -22,17 +22,22 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	background-color: $color1
 	background-image: none
 	overflow: visible
-	.banner
-		top: 5px !important
+	.banner-small
+		display: block
+		position: absolute
+		top: 5px
+		left: 15px
 		width: 250px
-		height: 50px !important
+		height: 50px
+	.banner
+		display: none
 	#nav-info
 		opacity: 0 !important
 	#nav
 		position: absolute
 		top: -5px !important
 		input
-			width: 550px
+			width: 400px
 			color: $color2
 		ul
 			#search-bar
@@ -53,7 +58,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	transition: all 0.4s ease
 	.banner
 		top: 10px
-		width: 250px
+		width: 200px
 		height: 100px
 	#nav-info
 		position: absolute
@@ -73,7 +78,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		top: 10px
 		transition: all 0.4s ease-in-out
 		input
-			width: 550px
+			width: 450px
 			color: $color2
 		ul
 			#search-bar
@@ -92,12 +97,17 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	height: 600px
 	overflow: hidden
 	background-color: $color1
-	background: url(../img/carousel/image1.jpeg) center center
+	background: url(../img/carousel/image2.jpeg) center center
 	background-size: cover
+	.banner-small
+		display: none
 	.banner
+		display: block
 		position: absolute
-		top: 20px
-		left: 40px
+		top: 10px
+		left: 20px
+		width: 300px
+		height: auto
 	
 	//-- Nav
 	#nav
@@ -179,7 +189,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 					display: block
 					opacity: 0
 					
-					@for $i from 1 through 4
+					@for $i from 1 through 6
 						&:nth-child(#{$i})
 							animation:
 								name: submenu
@@ -251,6 +261,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 				font-weight: 200
 //-- Content
 #content, #recommended
+	font-size: 18px
 	h1
 		font-family: $raleway
 		text-align: center
@@ -275,7 +286,6 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	.content-wrapper-3
 		margin: 20px 0 20px 0
 		.panel-content
-			//background-color: $color3
 			border: solid 1px $color5
 			border-left: none
 			border-radius: 3px
@@ -340,10 +350,16 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 					font-size: 24px
 				.cart-subtotal
 					font-size: 28px
+				.cart-checkout
+					button
+						padding: 4px 15px
+						font-size: 28px
 			.alt
 				background-color: $color5
 			.no-padding
 				padding: 0
+			.info-row
+				margin: 2px 0 6px 0
 	.item
 		float: left
 		padding: 0 10px 15px 10px
@@ -413,6 +429,28 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		height: 50px
 #recommended
 	padding: 40px 0 40px 0
+#login
+	background-color: $color5
+	padding: 50px 0
+	.login-box
+		background-color: #fff
+		border: solid 1px $color3
+		border-radius: 3px
+		width: 450px
+		padding: 20px
+		position: relative
+		left: 50%
+		margin-left: -225px
+		input
+			width: 300px
+			height: 30px
+			font-size: 24px
+			margin-bottom: 10px
+			padding: 10px
+			border: solid 1px $color3
+			border-radius: 3px
+		input.submit
+			height: 50px
 				
 //-- Footer
 #mailing-list
