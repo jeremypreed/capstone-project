@@ -3,6 +3,8 @@ An e-commerce clothing website
 
 # Languages
 - HTML
+- PHP
+- MySQL
 - CSS
 - SASS
 - Javascript
