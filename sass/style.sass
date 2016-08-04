@@ -286,16 +286,16 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	.content-wrapper-3
 		margin: 20px 0 20px 0
 		.panel-content
-			border: solid 1px $color5
+			border: solid 1px $color3
 			border-left: none
 			border-radius: 3px
 			font-size: 16px
 			#accordion
-				width: 220px
+				width: 300px
 			.fixed
 				position: fixed
 				top: 80px
-				width: 220px
+				width: 300px
 				transition: all 0.4s ease
 			.panel-heading
 				margin: 0
@@ -321,7 +321,15 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		.item
 			.img
 				border: solid 3px transparent
+				//width: 250px
+				//height: 300px
 		.main-content
+			.breadcrumb-item
+				text-transform: capitalize
+				a:link, a:visited
+					color: $color2
+					font-weight: bold
+			// Cart
 			.cart
 				padding: 20px 0 20px 0
 				font-size: 16px
@@ -363,7 +371,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	.item
 		float: left
 		padding: 0 10px 15px 10px
-		opacity: 0							// Invisible when loaded
+		//opacity: 1							// Invisible when loaded
 		transform: scale(.5)				// Half scale when loaded
 		-webkit-transform: scale(.5)		// Chrome, Safari, Moz
 		transition: all 0.4s ease-in-out	// Animation duration & style

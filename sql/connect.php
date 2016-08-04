@@ -1,14 +1,6 @@
 <?php
+$dbconnect = mysqli_connect($_['DB_HOST'],$_['DB_USER'],$_['DB_PASS'],$_['DB_NAME']); // Conects to the database
 
-// Database login data
-$dbhost = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "clothing_website";
-$dbconnect = mysqli_connect($dbhost,$dbusername,$dbpassword,$dbname); // Conects to the database
-
-if (mysqli_connect_errno()) {
-	echo "<div id=\"error\">Failed to connect: " . mysqli_connect_errno() . "</div>";
+if (mysqli_connect_errno()) { // If error connecting
+	echo '<div id="error">Failed to connect: '.mysqli_connect_errno().'</div>'; // Display error message
 }
-
-?>

@@ -28,9 +28,9 @@
             <div class="col-xs-6 col-md-3 column">
                 <h4>Connect</h4>
                 <ul class="nav">
-                    <li><a href="#"><i class="fa fa-facebook-square fa-lg fw" aria-hidden="true"></i> &nbsp; Facebook</a></li>
-                    <li><a href="#"><i class="fa fa-twitter-square fa-lg fw" aria-hidden="true"></i> &nbsp; Twitter</a></li>
-                    <li><a href="#"><i class="fa fa-instagram fa-lg fw" aria-hidden="true"></i> &nbsp; Instagram</a></li>
+                    <li><a href="http://facebook.com/"><i class="fa fa-facebook-square fa-lg fw" aria-hidden="true"></i> &nbsp; Facebook</a></li>
+                    <li><a href="http://twitter.com/"><i class="fa fa-twitter-square fa-lg fw" aria-hidden="true"></i> &nbsp; Twitter</a></li>
+                    <li><a href="http://instagram.com/"><i class="fa fa-instagram fa-lg fw" aria-hidden="true"></i> &nbsp; Instagram</a></li>
                 </ul>
             </div>
 			<div class="col-xs-6 col-md-3 column">
@@ -50,5 +50,5 @@
 
 <!-- Copyright -->
 <section id="copyright" class="container">
-	<p class="copyright text-right">© 2016 Website Name</p>
+	<p class="copyright text-right">© 2016 <?php echo $_['SITE_TITLE']; ?></p>
 </section>

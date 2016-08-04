@@ -5,7 +5,7 @@ session_start(); // Create session
 
 if ($_SESSION['id']){
 	// If active session, redirect to account page
-	header('Location: account');
+	header('Location: '.$_['SITE_URL'].'account');
 } else {
 	// Runs when user submits form
 	if ($_POST['submit']) {
@@ -43,7 +43,7 @@ if ($_SESSION['id']){
 			$_SESSION['email'] = $user_email;
 			$_SESSION['register_date'] = $user_register_date;
 			$_SESSION['last_login'] = $user_last_login;
-			header('Location: account');
+			header('Location: '.$_['SITE_URL'].'account');
 		} else { 
 			// User submitted email or password does not match DB
 			echo "<div id=\"error\">Incorrect username or password.</div>"; 
@@ -60,13 +60,13 @@ if ($_SESSION['id']){
 			
 			<h2>Login</h2><br>
 			
-			<form method="post" action="http://localhost/ecommerce/login">
+			<form method="post" action="<?php echo $_['SITE_URL']; ?>login">
 				<input type="email" placeholder="E-mail" name="email" /> <br />
 				<input type="password" placeholder="Password" name="password" /> <br />
 				<input type="submit" value="Login" name="submit" class="submit" />
 			</form><br>
 			
-			<p>Don't have an account? <a href="http://localhost/ecommerce/register">Register now!</a> It's quick, easy, and makes shopping easier.</p>
+			<p>Don't have an account? <a href="<?php echo $_['SITE_URL']; ?>register">Register now!</a> It's quick, easy, and makes shopping easier.</p>
 			
 			</div>
 		</div>

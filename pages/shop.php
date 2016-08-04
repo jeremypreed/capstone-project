@@ -1,216 +1,39 @@
-<!-- Shop Page -->
-<div id="content">
-	<section class="content-wrapper-3 container-fluid">	
-		<div class="row">
-			<div class="col-md-2 column panel-content">
-								
-				  <div class="panel-group" id="accordion">
-					<div class="panel panel-default">
-					  <div class="panel-heading">
-						<h4 class="panel-title">
-						  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Men</a>
-						</h4>
-					  </div>
-					  <div id="collapse1" class="panel-collapse collapse in">
-						<div class="panel-body">
-							<ul class="fa-ul">
-								<li><i class="fa-li fa fa-angle-right"></i>Shirts</li>
-								<li><i class="fa-li fa fa-angle-right"></i>T-Shirts</li>
-								<li><i class="fa-li fa fa-angle-right"></i>Jeans</li>
-								<li><i class="fa-li fa fa-angle-right"></i>Shorts</li>
-							</ul>
-						</div>
-					  </div>
-					</div>
-					<div class="panel panel-default">
-					  <div class="panel-heading">
-						<h4 class="panel-title">
-						  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Women</a>
-						</h4>
-					  </div>
-					  <div id="collapse2" class="panel-collapse collapse">
-						<div class="panel-body">
-							<ul class="fa-ul">
-								<li><i class="fa-li fa fa-angle-right"></i>Shirts</li>
-								<li><i class="fa-li fa fa-angle-right"></i>T-Shirts</li>
-								<li><i class="fa-li fa fa-angle-right"></i>Jeans</li>
-								<li><i class="fa-li fa fa-angle-right"></i>Shorts</li>
-							</ul>
-						</div>
-					  </div>
-					</div>
-					<div class="panel panel-default">
-					  <div class="panel-heading">
-						<h4 class="panel-title">
-						  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Boys</a>
-						</h4>
-					  </div>
-					  <div id="collapse3" class="panel-collapse collapse">
-						<div class="panel-body">
-							<ul class="fa-ul">
-								<li><i class="fa-li fa fa-angle-right"></i>Shirts</li>
-								<li><i class="fa-li fa fa-angle-right"></i>T-Shirts</li>
-								<li><i class="fa-li fa fa-angle-right"></i>Jeans</li>
-								<li><i class="fa-li fa fa-angle-right"></i>Shorts</li>
-							</ul>
-						</div>
-					  </div>
-					</div>
-					<div class="panel panel-default">
-					  <div class="panel-heading">
-						<h4 class="panel-title">
-						  <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Girls</a>
-						</h4>
-					  </div>
-					  <div id="collapse4" class="panel-collapse collapse">
-						<div class="panel-body">
-							<ul class="fa-ul">
-								<li><i class="fa-li fa fa-angle-right"></i>Shirts</li>
-								<li><i class="fa-li fa fa-angle-right"></i>T-Shirts</li>
-								<li><i class="fa-li fa fa-angle-right"></i>Jeans</li>
-								<li><i class="fa-li fa fa-angle-right"></i>Shorts</li>
-							</ul>
-						</div>
-					  </div>
-					</div>
-				  </div>
-
-			</div>
-			<div class="col-md-10 main-content">	
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
+<?php
+$categories = array( // Array of departments
+				'men', // 0
+				'women', // 1
+				'boys', // 2
+				'girls'); // 3
 				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
+$subcategories = array( // Array of subcategories in each department
+					'shirts', // 0
+					't-shirts', // 1
+					'jeans', // 2
+					'shorts'); // 3
+// Shop Content
+if ($page[3]) { // Product selected
+	include_once('pages/shop/product.php'); } // Product page
+else if (in_array($page[2],$subcategories)&&!isset($page[3])) { // Subcategory selected but not product
+	// List of products 
+	include_once('pages/shop/product_list.php'); }
+else if (in_array($page[1],$categories)&&!isset($page[2])) { // Category selected but not subcategory
+	// List of subcategories
+	echo 'list of subcategories-- shirts, t-shirts, etc'; }
+else if ($page[0]&&!isset($page[1])) { // Shop selected but not category
+	// Shop front page
+	echo 'list of categories-- men, women, etc'; }
+else { 
+	// Page not found ?>
+	<div id="content">
+		<section class="content-wrapper-3 container-fluid">	
+			<div class="row">
+				<div class="col-md-3 column panel-content">
+					<?php include_once('layout/shop-panel.php') ?>
 				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
-				</div>
-				
-				<div class="item">
-					<div class="img"><img src="http://placehold.it/250x400"></div>
-					<div class="info">
-						<span class="title">The name of the title.</span><br>
-						<span class="discount">$15.99</span>
-						<span class="price">$9.99</span>
-					</div>
+				<div class="col-md-9 main-content">
+					<?php echo $MSG['NOT_FOUND']; ?>
 				</div>
 			</div>
-		</div>
-	</section>
-</div>
+		</section>
+	</div>
+<?php }
