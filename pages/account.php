@@ -2,8 +2,8 @@
 if (!$_SESSION['id']){ // If not active session
 	header('Location: '.$_['SITE_URL'].'login'); // Redirect to login page
 	die();
-} else { ?>
-<!-- Account -->
+} else { 
+# Account Page ?>
 <div id="content">
 	<section class="content-wrapper-3 container-fluid">	
 		<div class="row">

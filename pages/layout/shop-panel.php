@@ -1,70 +1,74 @@
-<div class="panel-group" id="accordion">
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-		<h4 class="panel-title">
-		  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Men</a>
-		</h4>
-	  </div>
-	  <div id="collapse1" class="panel-collapse collapse in">
-		<div class="panel-body">
+<div id="shop-panel">
+		<h2 class="panel-title">
+		  <a href="#men">Men</a>
+		</h2>
 			<ul class="fa-ul">
-				<li><i class="fa-li fa fa-angle-right"></i>Shirts</li>
-				<li><i class="fa-li fa fa-angle-right"></i>T-Shirts</li>
-				<li><i class="fa-li fa fa-angle-right"></i>Jeans</li>
-				<li><i class="fa-li fa fa-angle-right"></i>Shorts</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/men/shirts">Shirts</a>
+				</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/men/t-shirts">T-Shirts</a>
+				</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/men/jeans">Jeans</a>
+				</li>
 			</ul>
-		</div>
-	  </div>
-	</div>
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-		<h4 class="panel-title">
-		  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Women</a>
-		</h4>
-	  </div>
-	  <div id="collapse2" class="panel-collapse collapse">
-		<div class="panel-body">
+
+		<h2 class="panel-title">
+		  <a href="#women">Women</a>
+		</h2>
 			<ul class="fa-ul">
-				<li><i class="fa-li fa fa-angle-right"></i>Shirts</li>
-				<li><i class="fa-li fa fa-angle-right"></i>T-Shirts</li>
-				<li><i class="fa-li fa fa-angle-right"></i>Jeans</li>
-				<li><i class="fa-li fa fa-angle-right"></i>Shorts</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/women/shirts">Shirts</a>
+				</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/women/t-shirts">T-Shirts</a>
+				</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/women/jeans">Jeans</a>
+				</li>
 			</ul>
-		</div>
-	  </div>
-	</div>
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-		<h4 class="panel-title">
-		  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Boys</a>
-		</h4>
-	  </div>
-	  <div id="collapse3" class="panel-collapse collapse">
-		<div class="panel-body">
+
+		<h2 class="panel-title">
+		  <a href="#boys">Boys</a>
+		</h2>
 			<ul class="fa-ul">
-				<li><i class="fa-li fa fa-angle-right"></i>Shirts</li>
-				<li><i class="fa-li fa fa-angle-right"></i>T-Shirts</li>
-				<li><i class="fa-li fa fa-angle-right"></i>Jeans</li>
-				<li><i class="fa-li fa fa-angle-right"></i>Shorts</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/boys/shirts">Shirts</a>
+				</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/boys/t-shirts">T-Shirts</a>
+				</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/boys/jeans">Jeans</a>
+				</li>
 			</ul>
-		</div>
-	  </div>
-	</div>
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-		<h4 class="panel-title">
-		  <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Girls</a>
-		</h4>
-	  </div>
-	  <div id="collapse4" class="panel-collapse collapse">
-		<div class="panel-body">
+
+		<h2 class="panel-title">
+		  <a href="#girls">Girls</a>
+		</h2>
 			<ul class="fa-ul">
-				<li><i class="fa-li fa fa-angle-right"></i>Shirts</li>
-				<li><i class="fa-li fa fa-angle-right"></i>T-Shirts</li>
-				<li><i class="fa-li fa fa-angle-right"></i>Jeans</li>
-				<li><i class="fa-li fa fa-angle-right"></i>Shorts</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/girls/shirts">Shirts</a>
+				</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/girls/t-shirts">T-Shirts</a>
+				</li>
+				<li>
+					<i class="fa-li fa fa-angle-right"></i>
+					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/girls/jeans">Jeans</a>
+				</li>
 			</ul>
-		</div>
-	  </div>
-	</div>
+
 </div>

@@ -26,7 +26,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		display: block
 		position: absolute
 		top: 5px
-		left: 15px
+		left: 18px
 		width: 250px
 		height: 50px
 	.banner
@@ -50,14 +50,14 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 				a:hover,a:active
 					background-color: #fff
 	#carousel
-		display: none // temporary until separated /w php
+		display: none
 #header.normal
 	height: 120px
 	background-color: $color1
 	background-image: none
-	transition: all 0.4s ease
 	.banner
 		top: 10px
+		left: 40px
 		width: 200px
 		height: 100px
 	#nav-info
@@ -76,7 +76,6 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	#nav
 		position: absolute !important
 		top: 10px
-		transition: all 0.4s ease-in-out
 		input
 			width: 450px
 			color: $color2
@@ -97,8 +96,6 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	height: 600px
 	overflow: hidden
 	background-color: $color1
-	background: url(../img/carousel/image2.jpeg) center center
-	background-size: cover
 	.banner-small
 		display: none
 	.banner
@@ -114,7 +111,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		position: fixed
 		top: 20px
 		right: 40px
-		transition: all 0.4s ease
+		transition: all 250ms ease-in-out
 		input
 			width: 400px
 			height: 50px
@@ -169,11 +166,11 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 					display: none
 					float: none
 					position: relative
-					z-index: 2
+					z-index: 100
 					a:link, a:visited
 						text-align: left
 						text-shadow: 0px 0px 0px #000
-						text-indent: 25px
+						text-indent: 10px
 						font-size: 16px	
 						font-weight: 300	
 						width: 150px
@@ -205,7 +202,11 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	//-- Carousel
 	#carousel
 		width: 100%
+		height: 600px
+		background-size: cover !important
 		font-family: $raleway
+		z-index: 0 !important
+		transition: all 800ms linear
 		.left-arrow, .right-arrow
 			font-size: 30px
 			line-height: 50px
@@ -230,23 +231,34 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		.tabs
 			position: absolute
 			top: 550px
-			width: 100%
+			width: 200px
+			left: 50%
+			margin-left: -100px
 			a:link,a:visited
-				color: $color5
-				padding: 0 2px
+				float: left
+				background-color: $color3
+				//border: 2px solid $color4
+				display: block
+				width: 20px
+				height: 20px
+				//border-radius: 50%
+				margin: 5px
 			a:hover,a:active
-				color: $color4
+				background-color: $color4
+			a.current-tab
+				background-color: $color4
 		.content
 			color: #fff
-			text-shadow: 0px 0px 3px $color1
-			position: relative
+			text-shadow: 0px 0px 3px $color3
+			position: absolute
 			font-size: 32px
-			text-align: right
+			//text-align: right
 			bottom: 50%
 			width: 800px
 			left: 50%
 			top: 250px
 			margin-left: -400px
+			display: none
 			span
 				background-color: $transparentbg
 				padding: 4px 10px
@@ -286,31 +298,31 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	.content-wrapper-3
 		margin: 20px 0 20px 0
 		.panel-content
-			border: solid 1px $color3
-			border-left: none
-			border-radius: 3px
 			font-size: 16px
-			#accordion
-				width: 300px
-			.fixed
-				position: fixed
-				top: 80px
-				width: 300px
-				transition: all 0.4s ease
-			.panel-heading
-				margin: 0
-				padding: 0
-				h4
+			#shop-panel
+				width: 100%
+				h2
 					font-family: $raleway
-					font-size: 30px
+					font-size: 24px
 					font-weight: 700
 					background-color: $color3
 					color: #fff
 					text-align: center
 					padding: 5px 0 5px 0
+				li
+					a
+						position: relative
+						left: -10px
+						color: $color3
+					
+			.fixed
+				position: fixed
+				top: 80px
+				width: 300px
+				transition: all 0.4s ease
 			ul
 				list-style-type: none
-				margin-left: 20px
+				margin-left: 30px
 				font-size: 18px
 				li.current-page
 					background-color: $color5
@@ -321,9 +333,21 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		.item
 			.img
 				border: solid 3px transparent
-				//width: 250px
-				//height: 300px
 		.main-content
+			.product-list
+				span.label
+					position: absolute
+					width: 244px
+					height: 35px
+					line-height: 15px
+					left: 50%
+					margin-left: -122px
+					bottom: 20px
+					padding: 10px
+					border-radius: 0px
+					font-weight: 900
+					font-size: 20px
+					background-color: $color2
 			.breadcrumb-item
 				text-transform: capitalize
 				a:link, a:visited
@@ -372,18 +396,24 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		float: left
 		padding: 0 10px 15px 10px
 		//opacity: 1							// Invisible when loaded
-		transform: scale(.5)				// Half scale when loaded
-		-webkit-transform: scale(.5)		// Chrome, Safari, Moz
+		//transform: scale(.5)				// Half scale when loaded
+		//-webkit-transform: scale(.5)		// Chrome, Safari, Moz
 		transition: all 0.4s ease-in-out	// Animation duration & style
 		&.visible		// Class makes visible when added
 			opacity: 1						// Visible opacity
 			transform: scale(1)				// 100% Scale
 			-webkit-transform: scale(1)		// Chrome, Safari, Moz
 		.img
-			margin: 0 0 5px 0
-			border: solid 3px transparent
+			img
+				border: solid 3px transparent
+				max-width: 250px
+				width: 100%
+				height: auto
+				margin: 0 auto
 		.info
 			.title
+				position: relative
+				top: 5px
 			.price
 				font-weight: 700
 			.discount
@@ -393,7 +423,11 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 				margin-right: 6px
 	.item:hover
 		.img
-			border: solid 3px $color2
+			img
+				-webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
+				-moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
+				box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
+				border: solid 3px $color2
 	.more
 		width: 250px
 		height: 100px
@@ -437,6 +471,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		height: 50px
 #recommended
 	padding: 40px 0 40px 0
+//-- Login
 #login
 	background-color: $color5
 	padding: 50px 0
@@ -451,23 +486,42 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		margin-left: -225px
 		input
 			width: 300px
-			height: 30px
+			height: 50px
 			font-size: 24px
-			margin-bottom: 10px
+			margin-bottom: 2px
 			padding: 10px
 			border: solid 1px $color3
 			border-radius: 3px
+			margin: 0 auto
+			position: relative
+			display: block
 		input.submit
 			height: 50px
+			&:hover
+				background-color: $color2
 				
 //-- Footer
 #mailing-list
 	background-color: $color3
-	padding: 20px 0 20px
+	padding: 15px 0 15px
 	color: $color5
+	font-size: 20px
+	p
+		margin: 5px 0 0 0
+		font-weight: 200
 	input
+		position: relative
+		left: 0px
 		padding: 5px 10px
 		color: #000
+		border: solid 0 #fff
+		border-radius: 2px
+	.email
+		width: 250px
+	.join
+		width: 100px
+		&:hover
+			background-color: $color2
 #footer
 	background-color: $color1
 	padding: 20px 0 20px
@@ -483,7 +537,17 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 				color: $color1
 				background-color: $color5
 #copyright
-	padding: 10px 0 0 0
+	padding: 10px 0 10px 0
+	ul
+		list-style-type: none
+		li
+			float: left
+			padding: 5px
+			a:link, a:visited
+				color: #555
+			a:hover
+				color: $color2
+				text-decoration: none
 	.copyright
-		color: $color1
+		color: #555
 			
