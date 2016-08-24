@@ -32,11 +32,11 @@ if ($page[1]=="track") {
 	echo '<li class="current-page"><i class="fa-li fa fa-angle-right"></i>Track Package</li>'; } else {
 	// Track Package link
 	echo '<li><i class="fa-li fa fa-angle-right"></i><a href="'.$_['SITE_URL'].'account/track">Track Package</a></li>'; }
-if ($page[1]=="wishlists") {
+if ($page[1]=="wishlist") {
 	// Wishlists Current Page
-	echo '<li class="current-page"><i class="fa-li fa fa-angle-right"></i>Manage Wishlists</li>'; } else {
+	echo '<li class="current-page"><i class="fa-li fa fa-angle-right"></i>Manage Wishlist</li>'; } else {
 	// Wishlists link
-	echo '<li><i class="fa-li fa fa-angle-right"></i><a href="'.$_['SITE_URL'].'account/wishlists">Manage Wishlists</a></li>'; } ?>
+	echo '<li><i class="fa-li fa fa-angle-right"></i><a href="'.$_['SITE_URL'].'account/wishlist">Manage Wishlist</a></li>'; } ?>
 	<li><i class="fa-li fa fa-angle-right"></i><a href="<?php echo $_['SITE_URL']; ?>logout">Log out</a></li>
 </ul>
 <?php

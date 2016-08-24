@@ -19,31 +19,26 @@
 				</ol>
 			
 				<div class="row product-list">
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<a href="<?php echo $_['SITE_URL'].$page[0].'/'.$page[1]; ?>/shirts">
-						<div class="img">
-							<img src="http://placehold.it/250x400" class="img-responsive">
-							<span class="label">Shirts</span>
-						</div>
-						</a>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<a href="<?php echo $_['SITE_URL'].$page[0].'/'.$page[1]; ?>/t-shirts">
-						<div class="img">
-							<img src="http://placehold.it/250x400" class="img-responsive">
-							<span class="label">T-Shirts</span>
-						</div>
-						</a>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<a href="<?php echo $_['SITE_URL'].$page[0].'/'.$page[1]; ?>/jeans">
-						<div class="img">
-							<img src="http://placehold.it/250x400" class="img-responsive">
-							<span class="label">Jeans</span>
-						</div>
-						</a>
-					</div>
-
+					<?php
+					$sc = count($i->subcategories);
+					for ($x=0; $x<=$sc; $x++){
+						$result = $i->query($dbc, $page[1], $x, -1, 'id', 1, true);
+						while ($row = mysqli_fetch_row($result)){
+							$i->columns($row);
+							if ($i->id){
+								# Subcategory Link ?>
+								<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
+									<a href="<?php echo $_['SITE_URL'].$page[0].'/'.$page[1].'/'.$i->subcategory; ?>">
+									<div class="img">
+										<img src="<?php echo $_['SITE_URL'].$i->image; ?>" class="img-responsive">
+										<span class="label"><?php echo $i->subcategory; ?></span>
+									</div>
+									</a>
+								</div>
+								<?php
+							}
+						}
+					} ?>
 				</div>
 			</div>
 		</div>

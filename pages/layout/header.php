@@ -62,8 +62,8 @@
 							<i class="fa fa-angle-right fa-lg fw"></i> &nbsp; Track</a>
 						</li>
 						<li>
-							<a href="<?php echo $_['SITE_URL']; ?>account/wishlists">
-							<i class="fa fa-angle-right fa-lg fw"></i> &nbsp; Wishlists</a>
+							<a href="<?php echo $_['SITE_URL']; ?>account/wishlist">
+							<i class="fa fa-angle-right fa-lg fw"></i> &nbsp; Wishlist</a>
 						</li>
 						<li>
 							<a href="<?php echo $_['SITE_URL']; ?>logout">
@@ -100,19 +100,19 @@
 		</div>
 		
 		<div class="content text-left" data-tab="1">
-			<span><strong>Hundreds</strong> of shirts in stock!</span><br>
-			<span><i>Shop</i> til you <i>drop!</i></span>
+			<span><strong>Shop</strong> til you <strong>drop!</strong></span><br>
+			<span><i><strong>Hundreds</strong> of shirts in stock!</i></span>
 		</div>
 		
 		<div class="content text-center" data-tab="2">
 			<span><strong>Summer Collection!</strong></span><br>
-			<span>Buy a T-Shirt</span><br>
-			<span><i>Made with <strong>100%</strong> cotton</i></span>
+			<span><i>All T-Shirts made with <strong>100%</strong> cotton.</i></span>
 		</div>
 		
 		<div class="content text-right" data-tab="3">
 			<span><strong>Fantastic, Great Stuff!</strong></span><br>
 			<span>Everything is <strong>high</strong> quality.</span><br>
+			<span><strong>Guaranteed.</strong></span><br>
 		</div>
 		
 		<div class="content text-center" data-tab="4">

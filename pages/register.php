@@ -47,13 +47,16 @@ if ($_SESSION['id']){
 	<section class="content-wrapper-1">
 		<div class="container">
 			<div class="login-box">
-				<h2>Login</h2><br>
+				<h2>Register</h2><br>
 				<form method="post" action="<?php echo $_['SITE_URL']; ?>login">
 					<input type="email" placeholder="E-mail" name="email" required> <br>
+					<input type="email" placeholder="First Name" name="first_name" required> <br>
+					<input type="email" placeholder="Last Name" name="last_name"> <br>
 					<input type="password" placeholder="Password" name="password" required> <br>
-					<input type="submit" value="Login" name="submit" class="submit">
+					<input type="password" placeholder="Confirm Password" name="password_confirm" required> <br>
+					<input type="submit" value="Register" name="submit" class="submit">
 				</form><br>
-				<p>Don't have an account? <a href="<?php echo $_['SITE_URL']; ?>register">Register</a>!</p>
+				<p>Already have an account? <a href="<?php echo $_['SITE_URL']; ?>login">Login</a>.</p>
 			</div>
 		</div>
 	</section>

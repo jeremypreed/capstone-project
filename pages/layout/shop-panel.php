@@ -1,74 +1,31 @@
 <div id="shop-panel">
-		<h2 class="panel-title">
-		  <a href="#men">Men</a>
+	<?php
+	$c = count($i->categories);
+	for ($x=0; $x<$c; $x++){ 
+	# Category ?>
+	<h2 class="panel-title">
+		  <?php echo '<a href="'.$_["SITE_URL"].$page[0].'/'.$i->categories[$x].'">'.$i->categories[$x].'</a>'; ?>
 		</h2>
 			<ul class="fa-ul">
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/men/shirts">Shirts</a>
-				</li>
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/men/t-shirts">T-Shirts</a>
-				</li>
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/men/jeans">Jeans</a>
-				</li>
-			</ul>
-
-		<h2 class="panel-title">
-		  <a href="#women">Women</a>
-		</h2>
-			<ul class="fa-ul">
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/women/shirts">Shirts</a>
-				</li>
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/women/t-shirts">T-Shirts</a>
-				</li>
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/women/jeans">Jeans</a>
-				</li>
-			</ul>
-
-		<h2 class="panel-title">
-		  <a href="#boys">Boys</a>
-		</h2>
-			<ul class="fa-ul">
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/boys/shirts">Shirts</a>
-				</li>
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/boys/t-shirts">T-Shirts</a>
-				</li>
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/boys/jeans">Jeans</a>
-				</li>
-			</ul>
-
-		<h2 class="panel-title">
-		  <a href="#girls">Girls</a>
-		</h2>
-			<ul class="fa-ul">
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/girls/shirts">Shirts</a>
-				</li>
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/girls/t-shirts">T-Shirts</a>
-				</li>
-				<li>
-					<i class="fa-li fa fa-angle-right"></i>
-					<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/girls/jeans">Jeans</a>
-				</li>
-			</ul>
-
+			<?php
+			$sc = count($i->subcategories);
+			for ($y=0; $y<$sc; $y++){
+				$result = $i->query($dbc, $x, $y, -1, 'id', 1, true);
+				while ($row = mysqli_fetch_row($result)){
+					$i->columns($row);
+					if ($i->id){
+						# Subcategory Links ?>
+						<li>
+							<i class="fa-li fa fa-angle-right"></i>
+							<a href="<?php echo $_['SITE_URL'].$page[0].'/'.$i->category.'/'.$i->subcategory; ?>">
+							<?php echo $i->subcategory; ?></a>
+							<span class="product-count">
+								<?php echo $i->countRows($dbc,$i->category,$i->subcategory); ?>
+							</span>
+						</li><?php
+					}
+				}
+			} ?>	
+			</ul><?php	
+	}?>
 </div>

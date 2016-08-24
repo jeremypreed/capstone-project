@@ -16,7 +16,7 @@ if (!$_SESSION['id']){ // If not active session
 					if ($page[1]=='profile'){ include_once('account/profile.php'); } // Profile
 					else if ($page[1]=='orders'){ include_once('account/orders.php'); } // Orders	
 					else if ($page[1]=='track'){ include_once('account/track.php'); } // Track
-					else if ($page[1]=='wishlists'){ include_once('account/wishlists.php'); } // Wishlists
+					else if ($page[1]=='wishlist'){ include_once('account/wishlist.php'); } // Wishlists
 					else { header('Location: '.$_['SITE_URL'].'account/profile'); } // Redirect to profile	
 					?>
 				</div>

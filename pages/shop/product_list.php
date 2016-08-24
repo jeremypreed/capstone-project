@@ -8,123 +8,51 @@
 			
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">
-						<a href="<?php echo $_['SITE_URL']; ?>home">Clothing Website</a>
+						<?php echo '<a href="'.$_["SITE_URL"].'home">'.$_["SITE_TITLE"].'</a>'; ?>
 					</li>
 					<li class="breadcrumb-item">
-						<a href="<?php echo $_['SITE_URL'].$page[0]; ?>"><?php echo $page[0]; ?></a>
+						<?php echo '<a href="'.$_["SITE_URL"].$page[0].'">'.$page[0].'</a>'; ?>
 					</li>
 					<li class="breadcrumb-item">
-						<a href="<?php echo $_['SITE_URL'].$page[0].'/'.$page[1]; ?>"><?php echo $page[1]; ?></a>
+						<?php echo '<a href="'.$_["SITE_URL"].$page[0].'/'.$page[1].'">'.$page[1].'</a>'; ?>
 					</li>
-					<li class="breadcrumb-item active"><?php echo $page[2]; ?></li>
+					<li class="breadcrumb-item active">
+						<?php echo $page[2]; ?>
+					</li>
 				</ol>
-			
-				<div class="row">
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
-						<div class="img"><img src="http://placehold.it/250x400" class="img-responsive"></div>
-						<div class="info">
-							<span class="title">The name of the title.</span><br>
-							<span class="discount">$15.99</span>
-							<span class="price">$9.99</span>
-						</div>
-					</div>
-
+				
+				<div class="row">		
+				
+<?php
+$result = $i->query($dbc,$page[1],$page[2]);
+if (mysqli_num_rows($result)>0){
+	while ($row = mysqli_fetch_row($result)){
+		$i->columns($row);
+	# Display Product	?>
+	<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
+		<a href="<?php echo $_['SITE_URL'].'shop/'.$i->category.'/'.$i->subcategory.'/'.$i->id; ?>">
+			<div class="img">
+				<img src="<?php echo $_['SITE_URL'].$i->image; ?>" class="img-responsive">
+				<div class="info">
+					<span class="title"><?php echo $i->name; ?></span><br>
+					<?php
+					if ($i->discount>0){
+						echo '<span class="discount" title="'.$i->percent_off.' off">$'.$i->price.'</span>
+						<span class="price-red">$'.$i->discount_price.'</span>';
+					} else {
+						echo '<span class="price">$'.$i->price.'</span>';			
+					}
+					?>
+				</div>
+			</div>
+		</a>
+	</div>				
+	<?php
+	}
+} else {
+	# No results
+	echo $MSG['NO_RESULTS'];
+} ?>
 				</div>
 			</div>
 		</div>

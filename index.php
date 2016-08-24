@@ -1,9 +1,13 @@
 <?php
-include_once('config.php'); // Custom Configuration
+include_once('config.php'); // Configuration
+include_once('sql/inventory.php');  // Inventory Class
+include_once('sql/cart.php');  // Cart Class
 $request = str_replace($_['SITE_PATH'], '', $_SERVER['REQUEST_URI']); // Get current URI and remove root path
 $page = array_filter(explode('/', $request)); // Separate each section of URI page array & remove empty values
 error_reporting(E_ALL & ~E_NOTICE); // Report all errors
 session_start(); // Start/Resume session
+$i = new Inventory(); // Create Inventory Object
+$cart = new Cart($dbc); // Create Cart Object
 ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
@@ -30,12 +34,13 @@ else if ($page[0]=='cart') { include_once('pages/cart.php'); } // Shopping Cart
 # Account Content
 else if ($page[0]=='account') { include_once('pages/account.php'); } // Account
 else if ($page[0]=='login') { include_once('pages/login.php'); } // Login
+else if ($page[0]=='register') { include_once('pages/register.php'); } // Register
 else if ($page[0]=='logout') { 
 	# Logout
 	session_destroy(); // Destroy session data
 	header('Location: '.$_['SITE_URL'].'home'); } // Redirect to home
 # Inventory Management
-else if ($page[0]=='admin') { echo "n/a"; } // Admin Inventory Management
+else if ($page[0]=='test') { include_once('test.php'); } // page for testing
 else {
 	# Redirect to home
 	header('Location: '.$_['SITE_URL'].'home');

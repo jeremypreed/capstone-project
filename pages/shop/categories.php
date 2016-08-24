@@ -16,15 +16,15 @@
 				</ol>
 			
 				<div class="row product-list">
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
+					<div class="item col-md-3 col-sm-6 col-xs-12 text-center">
 						<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/men">
 						<div class="img">
 							<img src="<?php echo $_['SITE_URL']; ?>img/shop/men.jpg" class="img-responsive">
-							<span class="label">Men</span>
+							<span class="label img-responsive">Men</span>
 						</div>
 						</a>
 					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
+					<div class="item col-md-3 col-sm-6 col-xs-12 text-center">
 						<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/women">
 						<div class="img">
 							<img src="<?php echo $_['SITE_URL']; ?>img/shop/women.jpg" class="img-responsive">
@@ -32,7 +32,7 @@
 						</div>
 						</a>
 					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
+					<div class="item col-md-3 col-sm-6 col-xs-12 text-center">
 						<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/boys">
 						<div class="img">
 							<img src="<?php echo $_['SITE_URL']; ?>img/shop/boys.jpg" class="img-responsive">
@@ -40,7 +40,7 @@
 						</div>
 						</a>
 					</div>
-					<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
+					<div class="item col-md-3 col-sm-6 col-xs-12 text-center">
 						<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/girls">
 						<div class="img">
 							<img src="<?php echo $_['SITE_URL']; ?>img/shop/girls.jpg" class="img-responsive">

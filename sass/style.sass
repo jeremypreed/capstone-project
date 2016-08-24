@@ -1,4 +1,4 @@
-//-- Colors
+// Colors
 $color1: rgba(34, 45, 44, 1);
 $color2: rgba(158, 188, 158, 1);
 $color3: rgba(67, 89, 85, 1);
@@ -6,7 +6,7 @@ $color4: rgba(109, 199, 117, 1);
 $color5: rgba(237, 237, 237, 1);
 $transparentbg: rgba(67, 89, 85, .75);
 
-//-- Fonts
+// Fonts
 $raleway: 'Raleway', sans-serif;
 $sourcesans: 'Source Sans Pro', sans-serif;
 
@@ -90,7 +90,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 				a:hover,a:active
 					background-color: #fff
 	#carousel
-		display: none // temporary until separated /w php
+		display: none
 	
 #header
 	height: 600px
@@ -112,6 +112,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		top: 20px
 		right: 40px
 		transition: all 250ms ease-in-out
+		z-index: 5 !important
 		input
 			width: 400px
 			height: 50px
@@ -123,6 +124,9 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 			transition: all 0.4s ease
 		ul
 			list-style-type: none
+			#search-bar:hover
+				.search-icon
+					position: absolute !important
 			li
 				float: left
 				padding-left: 10px
@@ -138,6 +142,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 					line-height: 50px
 					color: $color5
 					background-color: $transparentbg
+
 					span
 						margin: -2px 0 0 -5px
 						.cart-number
@@ -156,11 +161,15 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 					width: 50px !important
 					font-size: 24px	
 					border: solid 0 #fff
+					border-top-left-radius: 10px
+					border-bottom-left-radius: 10px
 					margin-right: 15px
 					top: 10px
 					text-shadow: 0px 0px 0px #000 !important
 					color: $color1 !important
 					background-color: transparent !important
+					&:hover
+						position: absolute !important
 				//-- Dropdown Menu
 				ul.menu li
 					display: none
@@ -176,14 +185,25 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 						width: 150px
 						height: 50px
 						line-height: 50px
-						background-color: #fff
+						background-color: #fff !important
 						color: $color1
 						margin: -1px 0 0 -10px
 					a:hover, a:active
 						color: $color4
 			li:hover
+				a // keep main link selected
+					background-color: $color4 !important
+					color: #fff
+					text-shadow: 0 0 0 #000
+					z-index: 5
+					position: relative
+				ul
+					transition: all 1.5s ease
+					-webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+					-moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+					box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
 				ul.menu li
-					display: block
+					display: block				
 					opacity: 0
 					
 					@for $i from 1 through 6
@@ -197,13 +217,16 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 				@keyframes submenu
 					0%
 						opacity: 0
+						transform: translateY(-75px)
 					100%
 						opacity: 1
+						transform: translateY(0)
 	//-- Carousel
 	#carousel
 		width: 100%
 		height: 600px
 		background-size: cover !important
+		background-position: center center
 		font-family: $raleway
 		z-index: 0 !important
 		transition: all 800ms linear
@@ -246,7 +269,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 			a:hover,a:active
 				background-color: $color4
 			a.current-tab
-				background-color: $color4
+				background-color: #fff
 		.content
 			color: #fff
 			text-shadow: 0px 0px 3px $color3
@@ -308,13 +331,20 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 					background-color: $color3
 					color: #fff
 					text-align: center
+					text-transform: capitalize
 					padding: 5px 0 5px 0
 				li
 					a
 						position: relative
 						left: -10px
 						color: $color3
-					
+						text-transform: capitalize
+					.product-count
+						position: relative
+						left: -10px
+						background-color: $color2
+						color: #fff
+						padding: 0 5px
 			.fixed
 				position: fixed
 				top: 80px
@@ -323,6 +353,7 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 			ul
 				list-style-type: none
 				margin-left: 30px
+				margin-top: 10px
 				font-size: 18px
 				li.current-page
 					background-color: $color5
@@ -337,37 +368,41 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 			.product-list
 				span.label
 					position: absolute
-					width: 244px
+					width: 50%
+					left: 25%
 					height: 35px
 					line-height: 15px
-					left: 50%
-					margin-left: -122px
-					bottom: 20px
+					bottom: 35px
 					padding: 10px
 					border-radius: 0px
 					font-weight: 900
 					font-size: 20px
 					background-color: $color2
+					text-transform: capitalize
+				.item:hover
+					span.label
+						background-color: $color2
 			.breadcrumb-item
 				text-transform: capitalize
 				a:link, a:visited
-					color: $color2
 					font-weight: bold
+					color: $color2
 			// Cart
 			.cart
 				padding: 20px 0 20px 0
-				font-size: 16px
 				border-radius: 3px
+				font-size: 16px
 				hr
 					border-top: solid 1px $color5
 				.cart-head
-					background-color: $color3
-					color: #fff
-					font-weight: bold
-					font-size: 18px
 					margin: 0 0 5px 0
 					padding: 5px
 					padding-right: 20px
+					font:
+						weight: bold
+						size: 18px
+					background-color: $color3
+					color: #fff
 				.cart-img
 					img
 						width: 75%
@@ -395,46 +430,46 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 	.item
 		float: left
 		padding: 0 10px 15px 10px
-		//opacity: 1							// Invisible when loaded
-		//transform: scale(.5)				// Half scale when loaded
-		//-webkit-transform: scale(.5)		// Chrome, Safari, Moz
-		transition: all 0.4s ease-in-out	// Animation duration & style
-		&.visible		// Class makes visible when added
-			opacity: 1						// Visible opacity
-			transform: scale(1)				// 100% Scale
-			-webkit-transform: scale(1)		// Chrome, Safari, Moz
+		//transition: all 0.4s ease-in-out
+		a
+			text-decoration: none
+			color: #000
 		.img
 			img
-				border: solid 3px transparent
-				max-width: 250px
 				width: 100%
 				height: auto
 				margin: 0 auto
+				border: solid 3px transparent
 		.info
+			padding-bottom: 10px
 			.title
 				position: relative
 				top: 5px
+			.price-red
+				font-weight: 700
+				color: #e00
 			.price
 				font-weight: 700
 			.discount
-				font-weight: 400
-				text-decoration: line-through
-				color: #e00
 				margin-right: 6px
-	.item:hover
-		.img
-			img
-				-webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
-				-moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
-				box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
-				border: solid 3px $color2
-	.more
-		width: 250px
-		height: 100px
+				font:
+					weight: 400
+					style: italic
+				text-decoration: line-through
+				color: #000
+		&:hover
+			.img
+				img
+					border: solid 3px $color2
+			.info
+				background-color: $color2
+	.more // more div: home page-- not using
 		position: relative
-		margin-left: -125px
 		left: 50%
 		float: left
+		width: 250px
+		height: 100px
+		margin-left: -125px
 		background-color: #eee
 		ul
 			list-style-type: none
@@ -442,48 +477,63 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 			li
 				float: left
 				padding: 5px
-#content.product-view
+#content.product-view // Product Page
 	padding: 40px 0 40px 0
+	.product-img
+		img
+			width: 450px
+			height: auto
 	.title
 		font-size: 28px
-	.price
+	.info
+		padding-bottom: 20px
 		font-size: 22px
-		.discount
-			font-weight: 400
-			text-decoration: line-through
+		.price-red
+			font-weight: 700
 			color: #e00
+		.price
+			font-weight: 700
+		.discount
 			margin-right: 6px
+			font:
+				weight: 400
+				style: italic
+			text-decoration: line-through
+			color: #000
 	select
 		width: 150px
 		height: 50px
 	.product-details-head
-		font-weight: 700
-		font-size: 18px
 		margin: 40px 0 10px 0
+		font:
+			weight: 700
+			size: 18px
 	.product-details
 		width: 80%
 		height:250px
+		margin: 0 0 20px 0
 		font-size: 16px
 		overflow-y: scroll
-		margin: 0 0 20px 0
 	button
 		width: 250px
 		height: 50px
+		
 #recommended
-	padding: 40px 0 40px 0
+	padding: 40px 0 40px 
+	
 //-- Login
 #login
-	background-color: $color5
 	padding: 50px 0
+	background-color: $color5
 	.login-box
-		background-color: #fff
-		border: solid 1px $color3
-		border-radius: 3px
-		width: 450px
-		padding: 20px
 		position: relative
 		left: 50%
+		width: 450px
 		margin-left: -225px
+		padding: 20px
+		border: solid 1px $color3
+		border-radius: 3px
+		background-color: #fff
 		input
 			width: 300px
 			height: 50px
@@ -502,8 +552,8 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 				
 //-- Footer
 #mailing-list
-	background-color: $color3
 	padding: 15px 0 15px
+	background-color: $color3
 	color: $color5
 	font-size: 20px
 	p
@@ -523,8 +573,8 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 		&:hover
 			background-color: $color2
 #footer
-	background-color: $color1
 	padding: 20px 0 20px
+	background-color: $color1
 	h4
 		font-weight: 200
 		color: #fff
@@ -533,9 +583,9 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 			color: $color5
 			a:link, a:visited
 				color: $color5
-			a:hover, a:active
-				color: $color1
-				background-color: $color5
+				&:hover, &:active
+					color: $color1
+					background-color: $color5
 #copyright
 	padding: 10px 0 10px 0
 	ul
@@ -545,9 +595,8 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 			padding: 5px
 			a:link, a:visited
 				color: #555
-			a:hover
-				color: $color2
-				text-decoration: none
+				&:hover
+					color: $color2
+					text-decoration: none
 	.copyright
 		color: #555
-			
