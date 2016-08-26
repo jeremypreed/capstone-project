@@ -27,7 +27,7 @@
 							$i->columns($row);
 							if ($i->id){
 								# Subcategory Link ?>
-								<div class="item col-md-4 col-sm-6 col-xs-12 text-center">
+								<div class="item col-md-3 col-sm-6 col-xs-12 text-center">
 									<a href="<?php echo $_['SITE_URL'].$page[0].'/'.$page[1].'/'.$i->subcategory; ?>">
 									<div class="img">
 										<img src="<?php echo $_['SITE_URL'].$i->image; ?>" class="img-responsive">

@@ -10,28 +10,29 @@ $(window).scroll(function(){
 	if (scroll_position > 50 && $('#header').hasClass('normal')){
 		$('#header').addClass('navbar-fixed-top');
 		$('#content').css({'margin':'160px 0 0 0'});
-		$('#accordion').addClass('fixed');
 	} else if (scroll_position > 500) {
 		$('#header').addClass('navbar-fixed-top');
 		$('#content').css({'margin':'600px 0 0 0'});		
 	} else {
 		$('#header').removeClass('navbar-fixed-top');	
 		$('#content').css({'margin':'0 0 0 0'});
-		$('#accordion').removeClass('fixed');
 	}
-	
-	// Animate product listing
-	if (scroll_position > $('section').offset().top - ($(window).height() / 1.1)){ // If scroll position matches
-		$('.item').each(function(i){										// top of clothing item minus 10% window height
-			setTimeout(function(){ // Set wait time for when to run function
-				$('section .item').eq(i).addClass('visible'); // Add visible class to clothing item
-			}, 150 * (i+1)); // wait 150ms times number of clothing item
-		});					 // example: first time waits 150ms, second waits 300, third waits 450 etc
-	}						 // this way each animation doesn't show at the same time
 });
 
-// Carousel
+
 $(document).ready(function(){
+// MSGs
+	$('#msg a').click(function(){
+		$('#msg').addClass('close');
+	});
+	
+	function autoCloseMsg(){	
+		setInterval(function(){
+			$('#msg').addClass('close');
+		},5000);
+	}
+	
+// Carousel
 	var switchSpeed = 8000 // Milliseconds before switching to next tab
 	var lastTab, currentTab = 1; // Currently selected tab & first visible tab 
 	var tabsAmount = $('.tabs').children().length; // Amount of tabs
@@ -90,4 +91,5 @@ $(document).ready(function(){
 	
 	goToTab(currentTab);
 	autoSwitch();
+	autoCloseMsg();
 });

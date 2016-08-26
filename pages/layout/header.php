@@ -36,16 +36,32 @@
 						  <strong class="fa-stack-1x cart-number"></strong>
 						</span>
 					</a>
+					
+					<?php if ($_SESSION['id']) { // Menu to show if logged in ?>
 					<ul class="menu">
-						<li>
-							<a href="#" class="cart">
-							<i class="fa fa-angle-right fa-lg fw"></i> &nbsp; No items.</a>
+						<?php
+						$cart->summary($dbc);
+						if ($cart->total_quantity) { ?>
+						<li class="cart">
+							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo '<strong>Total: $'.$cart->discount_subtotal.'</strong>'; ?></a>
 						</li>
-						<li>
+						<li class="cart">
+							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo '<strong>'.$cart->total_quantity.' item(s)</strong>'; ?></a>
+						</li>
+						<li class="cart">
+							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo 'You save <strong>$'.$cart->savings.'</strong>'; ?></a>
+						</li>
+						<li class="checkout-logout">
 							<a href="<?php echo $_['SITE_URL']; ?>cart/checkout">
 							<i class="fa fa-angle-right fa-lg fw"></i> &nbsp; Checkout</a>
-						</li>
+						</li><?php
+						} else { ?>
+						<li class="cart empty">
+							<a href="#">Your cart is empty</a>
+						</li><?php
+						} ?>
 					</ul>
+					<?php } ?>
 				</li>
 				
 				<li>
@@ -65,7 +81,7 @@
 							<a href="<?php echo $_['SITE_URL']; ?>account/wishlist">
 							<i class="fa fa-angle-right fa-lg fw"></i> &nbsp; Wishlist</a>
 						</li>
-						<li>
+						<li class="checkout-logout">
 							<a href="<?php echo $_['SITE_URL']; ?>logout">
 							<i class="fa fa-angle-right fa-lg fw"></i> &nbsp; Log out</a>
 						</li>
@@ -125,9 +141,14 @@
 	<?php } else { // Show shopping info if not home page ?>
 	<div id="nav-info">
 		<ul>
-			<li>&nbsp;</li>
-			<li>$0.00 (0 items)</li>
-			<?php // If logged in show users name. If not, show guest.
+			<li><?php echo mysqli_num_rows($i->query($dbc)).' products'; ?></li>
+			<?php 
+			if ($cart->total_quantity) {
+				echo '<li><strong>Total:</strong> $'.$cart->discount_subtotal.'</li>';
+			} else {
+				echo '<li>Your cart is empty.</li>';
+			}
+			// If logged in show users name. If not, show guest.
 			if ($_SESSION['id']){ echo "<li>".$_SESSION['first_name']." ".$_SESSION['last_name']."</li>"; } else { echo "<li>Guest</li>"; } ?>
 		</ul>
 	</div>

@@ -75,7 +75,8 @@ class Cart {
 				VALUES ($pid, 1, $uid)";
 
 		if (mysqli_query($dbc,$sql)) {
-			echo "Added to cart";
+			$msg = new Message();
+			$msg->alert('Added item to your cart');
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error;
 		}
@@ -87,7 +88,8 @@ class Cart {
 				AND user_id = '.$uid;
 
 		if (mysqli_query($dbc,$sql)) {
-			echo "Removed from cart";
+			$msg = new Message();
+			$msg->alert('Removed item from your cart');
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error;
 		}		
@@ -100,9 +102,35 @@ class Cart {
 				AND user_id = '.$uid;
 
 		if (mysqli_query($dbc,$sql)) {
-			echo "Updated cart";
+			$msg = new Message();
+			$msg->alert('Your cart has been updated');
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error;
 		}		
+	}
+
+	# Fetch and name each column from row 
+	public function columns($row) {
+		$this->id = $row[0]; // Product ID
+		$this->product_id = $row[1]; // Product ID
+		$this->quantity = $row[2]; // Quantity
+		$this->user_id = $row[3]; // User ID
 	}	
+	
+	public function summary($dbc){
+		$result = $this->query($dbc);
+		if (mysqli_num_rows($result)>0){
+			$i = new Inventory();
+			$this->subtotal = $this->discount_subtotal = $this->savings = $this->total_quantity = 0;
+			while ($row = mysqli_fetch_row($result)){
+				$this->columns($row);
+				$product_r = $i->query($dbc,-1, -1, $this->product_id); // Query DB for row
+				$i->columns(mysqli_fetch_row($product_r)); // Fetch Column
+				$this->subtotal += ($i->price*$this->quantity);
+				$this->discount_subtotal += ($i->discount_price*$this->quantity);
+				$this->savings += ($i->amount_off*$this->quantity);
+				$this->total_quantity += (1*$this->quantity);
+			}
+		}
+	}
 }

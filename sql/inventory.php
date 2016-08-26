@@ -11,7 +11,8 @@ class Inventory {
 				'shirts', 	// 0
 				't-shirts', // 1
 				'jeans', 	// 2
-				'blouses');	// 3
+				'blouses',	// 3
+				'shoes');	// 4
 	
 	public $where = '',$parameters = array();
 	
@@ -106,6 +107,7 @@ class Inventory {
 		$this->discount = $row[8]; // Product Discount
 		$this->image = $row[9]; // Product Image 
 		$this->percent_off = round($this->discount * 100).'%'; // Percentage off
-		$this->discount_price = round($this->price-($this->price*$this->discount), 2); // New price with discount
+		$this->discount_price = round($this->price-($this->price*$this->discount), 2); // Price /w discount
+		$this->amount_off = round($this->price-$this->discount_price, 2); // Amount off
 	}
 }

@@ -7,6 +7,7 @@ $page = array_filter(explode('/', $request)); // Separate each section of URI pa
 error_reporting(E_ALL & ~E_NOTICE); // Report all errors
 session_start(); // Start/Resume session
 $i = new Inventory(); // Create Inventory Object
+$msg = new Message(); // Create Message Object
 $cart = new Cart($dbc); // Create Cart Object
 ?>
 <!DOCTYPE HTML>
@@ -24,7 +25,7 @@ $cart = new Cart($dbc); // Create Cart Object
 	<script src="<?php echo $_['SITE_URL']; ?>js/javascript.js"></script><!-- Custom javascript -->
 </head>
 <body>
-<?php 
+<?php
 # Header
 include_once('pages/layout/header.php');
 # Shopping Content

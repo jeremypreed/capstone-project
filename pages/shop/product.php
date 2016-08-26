@@ -44,8 +44,16 @@ else {
 					</div>
 					<form method="post" action="#">
 						<input type="hidden" name="product_id" value="<?php echo $i->id; ?>" />
-						<input type="submit" name="add" value="Add to cart" />
+						<?php
+						if ($_SESSION['id']){
+						?>
+						<button type="submit" name="add">Add to cart</button>
 						<button>Add to wishlist</button>
+						<?php
+						} else {
+						echo 'You need to <a href="'.$_['SITE_URL'].'login">log in</a> to buy products.';
+						}
+						?>
 					</form>
 				</div>
 			</div>

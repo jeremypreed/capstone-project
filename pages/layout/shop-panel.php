@@ -16,12 +16,10 @@
 					if ($i->id){
 						# Subcategory Links ?>
 						<li>
-							<i class="fa-li fa fa-angle-right"></i>
+							<span class="product-count">
+								<?php echo $i->countRows($dbc,$i->category,$i->subcategory); ?></span> &nbsp; 
 							<a href="<?php echo $_['SITE_URL'].$page[0].'/'.$i->category.'/'.$i->subcategory; ?>">
 							<?php echo $i->subcategory; ?></a>
-							<span class="product-count">
-								<?php echo $i->countRows($dbc,$i->category,$i->subcategory); ?>
-							</span>
 						</li><?php
 					}
 				}

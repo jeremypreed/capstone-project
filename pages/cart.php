@@ -3,91 +3,98 @@
 	<section class="content-wrapper-3 container-fluid">	
 		<div class="row">
 			<div class="col-md-3 column panel-content">
-
 				<?php include_once('layout/account-panel.php'); ?>
-			
 			</div>
-			
 			<div class="col-md-9 main-content">	
-			
 				<div class="container-fluid">
 					<h2>Shopping Cart</h2>
-
+<?php 
+if ($_SESSION['id']){
+	$result = $cart->query($dbc);
+	$cartx = 0;
+	if (mysqli_num_rows($result)>0){ ?>
+	
 					<div class="row cart no-padding">
-						<div class="col-md-7"></div>
+						<div class="col-md-8"></div>
 						<div class="col-md-2 cart-head text-center">Quantity</div>
-						<div class="col-md-3 cart-head text-right">Price</div>
+						<div class="col-md-2 cart-head text-right">Price</div>
 					</div>
-					
-					<div class="row cart">
-						<div class="col-md-2 col-xs-4 cart-img text-center"><img src="http://placehold.it/250x400" S></div>
-						<div class="col-md-5 col-xs-8 cart-desc">
-							<h4>This is an item</h4>
-							<p>This is the items description</p>
-						</div>
-						<div class="col-md-2 col-xs-4 cart-items text-center">
-							<select>
-								<option disabled>Quantity</option>
-								<option value="1" selected>1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-							</select>
-						</div>
-						<div class="col-md-3 col-xs-8 cart-price text-right">$8.99</div>
-					</div>
-					
-					<div class="row cart alt">
-						<div class="col-md-2 col-xs-4 cart-img text-center"><img src="http://placehold.it/250x400" S></div>
-						<div class="col-md-5 col-xs-8 cart-desc">
-							<h4>This is an item</h4>
-							<p>This is the items description</p>
-						</div>
-						<div class="col-md-2 col-xs-4 cart-items text-center">
-							<select>
-								<option disabled>Quantity</option>
-								<option value="1" selected>1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-							</select>
-						</div>
-						<div class="col-md-3 col-xs-8 cart-price text-right">$8.99</div>
-					</div>
+	
+	<?php
+		while ($row = mysqli_fetch_row($result)){
+			$cart->columns($row);
+			$product_result = $i->query($dbc,-1, -1, $cart->product_id); // Query DB for row
+			$i->columns(mysqli_fetch_row($product_result)); // Fetch Column
+			if ($cartx%2==0){$alt='';}else{$alt='alt';}
+			$cartx++;
+# Display Cart Item ?>
 
-					<div class="row cart">
-						<div class="col-md-2 col-xs-4 cart-img text-center"><img src="http://placehold.it/250x400" S></div>
-						<div class="col-md-5 col-xs-8 cart-desc">
-							<h4>This is an item</h4>
-							<p>This is the items description</p>
-						</div>
-						<div class="col-md-2 col-xs-4 cart-items text-center">
-							<select>
-								<option disabled>Quantity</option>
-								<option value="1" selected>1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-							</select>
-						</div>
-						<div class="col-md-3 col-xs-8 cart-price text-right">$8.99</div>
-					</div>
+<div class="row cart <?php echo $alt; ?>">
+	<div class="col-md-2 col-xs-4 cart-img text-center">
+		<a href="<?php echo $_['SITE_URL'].'shop/'.$i->category.'/'.$i->subcategory.'/'.$i->id; ?>">
+			<img src="<?php echo $_['SITE_URL'].$i->image; ?>">
+		</a>
+	</div>
+	<div class="col-md-6 col-xs-8 cart-desc">
+		<h4><?php echo $i->name; ?></h4>
+		<p><?php echo $i->size.', '.$i->color.'<br>'.substr($i->description, 0, 50).'...'; ?></p>
+	</div>
+	<div class="col-md-2 col-xs-4 cart-items text-center">
+		<form method="post" action="#">
+			<input type="hidden" name="cart_id" value="<?php echo $cart->id; ?>" />
+			<select name="quantity">
+				<?php
+				for ($x=1;$x<6;$x++){
+					switch($x){
+						case $cart->quantity:
+							echo '<option value="'.$x.'" selected>'.$x.'</option>';
+							break;
+						default:
+							echo '<option value="'.$x.'">'.$x.'</option>';
+							break;
+					}
+				}
+				?>
+			</select>
+			<input type="submit" name="update" value="Update" class="update" /><br>
+			<button type="submit" name="remove" value="Remove" class="btn btn-link remove" /><i class="fa fa-remove fw"></i> Remove</button>
+		</form>
+	</div>
+	<div class="col-md-2 col-xs-8 cart-price text-right">
+	<?php
+	if ($cart->quantity>1){ echo '<span class="small">$'.$i->discount_price.' &times '.$cart->quantity.'</span><br>'; }
+	if ($i->discount>0){
+		echo '<span class="discount" title="'.$i->percent_off.' off">$'.($i->price*$cart->quantity).'</span><span class="price-red">$'.($i->discount_price*$cart->quantity).'</span><br>
+		<span class="small">'.$i->percent_off.' Off<br> You save $'.($i->amount_off*$cart->quantity).'</span>';
+	} else {
+		echo '<span class="price">$'.($i->price*$cart->quantity).'</span>';			
+	}
+	?>
+	</div>
+</div>
+<?php	}
+$cart->summary($dbc);
+# total / checkout ?>
+	<div class="row cart no-padding">
+		<div class="col-md-8"></div>
+		<div class="col-md-4 cart-head text-right">Subtotal</div>
+	</div>
+	
+	<div class="row cart text-right">
+		<div class="col-md-7"></div>
+		<div class="col-md-5 subtotal"><?php echo '$'.$cart->discount_subtotal.'<br><span class="small">You save $'.$cart->savings.' on '.$cart->total_quantity.' item(s)</span>'; ?></div>
+	</div>
+	
+	<div class="row cart text-center no-padding">
+		<div class="col-md-9"></div>
+		<div class="col-md-3 cart-checkout"><input type="submit" value="Checkout" /></div>
+	</div>
+</div>
 
-					<div class="row cart no-padding">
-						<div class="col-md-9"></div>
-						<div class="col-md-3 cart-head text-right">Subtotal</div>
-					</div>
-					
-					<div class="row cart text-center">
-						<div class="col-md-9"></div>
-						<div class="col-md-3 cart-subtotal">(3 items) $50.82</div>
-					</div>
-					
-					<div class="row cart text-center no-padding">
-						<div class="col-md-9"></div>
-						<div class="col-md-3 cart-checkout"><button>Checkout</button></div>
-					</div>
-				</div>
+<?php
+	} else { echo "Your cart is empty."; }
+} else { echo "Youre not logged in."; }
+?>
 			
 			</div>
 		</div>

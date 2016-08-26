@@ -38,7 +38,7 @@ if ($_SESSION['id']){
 			header('Location: '.$_['SITE_URL'].'account/profile');
 		} else { 
 			# User submitted email or password does not match DB
-			echo $MSG['WRONG_USERPASS']; 
+			$msg->error('Incorrect email or password'); 
 		}
 	}
 }
