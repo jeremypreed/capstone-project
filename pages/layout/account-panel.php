@@ -41,8 +41,6 @@ if ($page[1]=="wishlist") {
 </ul>
 <?php
 	// Show if not logged in
-	} else { ?>
-<h3>Account</h3><hr>
-<p><a href="<?php echo $_['SITE_URL']; ?>register">Register</a> to save your cart, manage wishlists, and more.</p>
-<p><a href="<?php echo $_['SITE_URL']; ?>login">Log in</a>, if you already have an account.</p>
-<?php } ?>
+	} else {
+	echo '<h3>Account</h3><hr>'.$MSG['REGISTER_LOGIN'];
+} ?>

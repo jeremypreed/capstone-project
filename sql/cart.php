@@ -22,11 +22,6 @@ class Cart {
 				}
 			} else {
 				# not logged in. create cookie
-				$this->cart = array('id' => $product_id,
-									'quantity' => 1);
-				if (setcookie($_['SITE_SH'].'cart', $cart)){
-					echo "added to cart via cookie";
-				}
 			}
 		}
 		
@@ -75,8 +70,7 @@ class Cart {
 				VALUES ($pid, 1, $uid)";
 
 		if (mysqli_query($dbc,$sql)) {
-			$msg = new Message();
-			$msg->alert('Added item to your cart');
+			alert('Added item to your cart');
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error;
 		}
@@ -88,8 +82,7 @@ class Cart {
 				AND user_id = '.$uid;
 
 		if (mysqli_query($dbc,$sql)) {
-			$msg = new Message();
-			$msg->alert('Removed item from your cart');
+			alert('Removed item from your cart');
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error;
 		}		
@@ -102,8 +95,7 @@ class Cart {
 				AND user_id = '.$uid;
 
 		if (mysqli_query($dbc,$sql)) {
-			$msg = new Message();
-			$msg->alert('Your cart has been updated');
+			alert('Your cart has been updated');
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error;
 		}		
@@ -126,9 +118,9 @@ class Cart {
 				$this->columns($row);
 				$product_r = $i->query($dbc,-1, -1, $this->product_id); // Query DB for row
 				$i->columns(mysqli_fetch_row($product_r)); // Fetch Column
-				$this->subtotal += ($i->price*$this->quantity);
-				$this->discount_subtotal += ($i->discount_price*$this->quantity);
-				$this->savings += ($i->amount_off*$this->quantity);
+				$this->subtotal += number_format((float)($i->price*$this->quantity), 2, '.', '');
+				$this->discount_subtotal += number_format((float)($i->discount_price*$this->quantity), 2, '.', '');
+				$this->savings += number_format((float)($i->amount_off*$this->quantity), 2, '.', '');
 				$this->total_quantity += (1*$this->quantity);
 			}
 		}

@@ -32,6 +32,27 @@ $(document).ready(function(){
 		},5000);
 	}
 	
+// Search
+function search(){
+	var url = 'http://localhost/clothingwebsite/search/'+$('input[name="search"]').val();
+	window.location = url;
+}
+// Press search icon
+$('#search-bar a').click(function(){
+	search();
+});
+// Press Enter while in search bar
+$('input[name="search"]').bind('searchBtn',function(e){
+	search();
+});
+$('input[name="search"]').keyup(function(e){
+	if(e.keyCode == 13)
+	{
+	  $(this).trigger('searchBtn');
+	}
+});
+ 
+	
 // Carousel
 	var switchSpeed = 8000 // Milliseconds before switching to next tab
 	var lastTab, currentTab = 1; // Currently selected tab & first visible tab 

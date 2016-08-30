@@ -5,7 +5,6 @@ if ($_SESSION['id']){
 } else {
 	# Runs when user submits form
 	if ($_POST['submit']) {
-		include_once('sql/connect.php'); // Connect to DB
 		$email = $_POST['email']; // User submitted email
 		$password = strip_tags($_POST['password']); // User submitted password
 		# Select row from DB matching submitted email
@@ -35,10 +34,11 @@ if ($_SESSION['id']){
 			$_SESSION['email'] = $user_email;
 			$_SESSION['register_date'] = $user_register_date;
 			$_SESSION['last_login'] = $user_last_login;
+			$_SESSION['welcome'] = true;
 			header('Location: '.$_['SITE_URL'].'account/profile');
 		} else { 
 			# User submitted email or password does not match DB
-			$msg->error('Incorrect email or password'); 
+			error('Incorrect email or password'); 
 		}
 	}
 }

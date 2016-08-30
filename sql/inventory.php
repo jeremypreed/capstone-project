@@ -94,6 +94,11 @@ class Inventory {
 		return mysqli_query($dbc,$sql);
 	}
 	
+	function search($dbc,$search){
+		$sql = 'SELECT * FROM inventory WHERE name LIKE "%'.$search.'%" or color LIKE "%'.$search.'%"';
+		return mysqli_query($dbc,$sql);
+	}
+	
 	# Fetch and name each column from row 
 	public function columns($row) {
 		$this->id = $row[0]; // Product ID
@@ -107,7 +112,7 @@ class Inventory {
 		$this->discount = $row[8]; // Product Discount
 		$this->image = $row[9]; // Product Image 
 		$this->percent_off = round($this->discount * 100).'%'; // Percentage off
-		$this->discount_price = round($this->price-($this->price*$this->discount), 2); // Price /w discount
-		$this->amount_off = round($this->price-$this->discount_price, 2); // Amount off
+		$this->discount_price = number_format((float)$this->price-($this->price*$this->discount), 2, '.', ''); // Price /w discount
+		$this->amount_off = number_format((float)$this->price-$this->discount_price, 2, '.', ''); // Amount off
 	}
 }

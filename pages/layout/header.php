@@ -7,7 +7,7 @@
 	<div id="nav">	
 		<nav>
 			<ul>
-				<li id="search-bar"><input type="text"><a href="#" class="search-icon"><i class="fa fa-search fw" aria-hidden="true"></i></a></li>
+				<li id="search-bar"><input type="search" name="search"><a href="#" class="search-icon"><i class="fa fa-search fw" aria-hidden="true"></i></a></li>
 				<li>
 					<a href="<?php echo $_['SITE_URL']; ?>shop">Shop</a>
 					<ul class="menu">

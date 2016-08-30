@@ -7,7 +7,6 @@ $page = array_filter(explode('/', $request)); // Separate each section of URI pa
 error_reporting(E_ALL & ~E_NOTICE); // Report all errors
 session_start(); // Start/Resume session
 $i = new Inventory(); // Create Inventory Object
-$msg = new Message(); // Create Message Object
 $cart = new Cart($dbc); // Create Cart Object
 ?>
 <!DOCTYPE HTML>
@@ -30,6 +29,7 @@ $cart = new Cart($dbc); // Create Cart Object
 include_once('pages/layout/header.php');
 # Shopping Content
 if ($page[0]=='home') {	include_once('pages/home.php'); } // Home 
+else if ($page[0]=='search') { include_once('pages/shop/search.php'); } // Search
 else if ($page[0]=='shop') { include_once('pages/shop.php'); } // Shop
 else if ($page[0]=='cart') { include_once('pages/cart.php'); } // Shopping Cart
 # Account Content

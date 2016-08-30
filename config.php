@@ -21,14 +21,18 @@ if (mysqli_connect_errno()) { echo $MSG['CONN_ERROR']; }
 $MSG = array(
 	# Error messages
 	'NOT_FOUND' => '<div class="error"><h2>Sorry!</h2><p>The page you are looking for does not exist or may have been moved.</p></div>',
-	'NO_RESULTS' => '<div class="error"><h2>Sorry!</h2><p>Nothing was found.</p></div>'
+	'NO_RESULTS' => '<div class="error"><h2>Sorry!</h2><p>Nothing was found.</p></div>',
+	'SEARCH_EMPTY' => '<div class="error"><h2>Sorry!</h2><p>You must enter something into the search field.</p></div>',
+	'CART_EMPTY' => '<p>Your cart is empty.</p>',
+	'LOGIN' => '<p>You\'re not logged in.</p>',
+	'LOGIN_TOADD' => '<p>You need to <a href="'.$_['SITE_URL'].'login">log in</a> to buy products.</p>',
+	'REGISTER_LOGIN' => '<p><a href="'.$_['SITE_URL'].'register">Register</a> to save your cart, manage wishlists, and more.</p><p><a href="'.$_['SITE_URL'].'login">Log in</a>, if you already have an account.</p>'
 );
 
-class Message {
-	public function alert($m){
-		echo '<div id="msg" class="open"><div class="alert">'.$m.'<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
-	}
-	public function error($m){
-		echo '<div id="msg" class="open"><div class="alert error">'.$m.'<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
-	}
-} 
+function alert($m){
+	echo '<div id="msg" class="open"><div class="alert">'.$m.'<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
+}
+
+function error($m){
+	echo '<div id="msg" class="open"><div class="alert error">'.$m.'<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
+}

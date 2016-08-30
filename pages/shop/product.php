@@ -51,7 +51,7 @@ else {
 						<button>Add to wishlist</button>
 						<?php
 						} else {
-						echo 'You need to <a href="'.$_['SITE_URL'].'login">log in</a> to buy products.';
+							echo $MSG['LOGIN'].$MSG['LOGIN_TOADD'];
 						}
 						?>
 					</form>

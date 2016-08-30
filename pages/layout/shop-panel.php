@@ -4,7 +4,7 @@
 	for ($x=0; $x<$c; $x++){ 
 	# Category ?>
 	<h2 class="panel-title">
-		  <?php echo '<a href="'.$_["SITE_URL"].$page[0].'/'.$i->categories[$x].'">'.$i->categories[$x].'</a>'; ?>
+		  <?php echo '<a href="'.$_["SITE_URL"].'shop/'.$i->categories[$x].'">'.$i->categories[$x].'</a>'; ?>
 		</h2>
 			<ul class="fa-ul">
 			<?php
@@ -18,7 +18,7 @@
 						<li>
 							<span class="product-count">
 								<?php echo $i->countRows($dbc,$i->category,$i->subcategory); ?></span> &nbsp; 
-							<a href="<?php echo $_['SITE_URL'].$page[0].'/'.$i->category.'/'.$i->subcategory; ?>">
+							<a href="<?php echo $_['SITE_URL'].'shop/'.$i->category.'/'.$i->subcategory; ?>">
 							<?php echo $i->subcategory; ?></a>
 						</li><?php
 					}

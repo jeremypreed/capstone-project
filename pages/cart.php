@@ -44,7 +44,7 @@ if ($_SESSION['id']){
 			<input type="hidden" name="cart_id" value="<?php echo $cart->id; ?>" />
 			<select name="quantity">
 				<?php
-				for ($x=1;$x<6;$x++){
+				for ($x=1;$x<11;$x++){
 					switch($x){
 						case $cart->quantity:
 							echo '<option value="'.$x.'" selected>'.$x.'</option>';
@@ -56,7 +56,7 @@ if ($_SESSION['id']){
 				}
 				?>
 			</select>
-			<input type="submit" name="update" value="Update" class="update" /><br>
+			<button type="submit" name="update" value="Update" class="update">Update</button><br>
 			<button type="submit" name="remove" value="Remove" class="btn btn-link remove" /><i class="fa fa-remove fw"></i> Remove</button>
 		</form>
 	</div>
@@ -87,13 +87,15 @@ $cart->summary($dbc);
 	
 	<div class="row cart text-center no-padding">
 		<div class="col-md-9"></div>
-		<div class="col-md-3 cart-checkout"><input type="submit" value="Checkout" /></div>
+		<div class="col-md-3 cart-checkout">
+			<button type="submit" value="Checkout">Checkout</button>
+		</div>
 	</div>
 </div>
 
 <?php
-	} else { echo "Your cart is empty."; }
-} else { echo "Youre not logged in."; }
+	} else { echo $MSG['CART_EMPTY']; }
+} else { echo $MSG['LOGIN']; }
 ?>
 			
 			</div>

@@ -2,7 +2,11 @@
 if (!$_SESSION['id']){ // If not active session
 	header('Location: '.$_['SITE_URL'].'login'); // Redirect to login page
 	die();
-} else { 
+} else {
+	if ($_SESSION['welcome']==true){
+		alert('Welcome, '.$_SESSION['first_name'].'! You have logged in successfully.');
+		$_SESSION['welcome'] = false;
+	}	
 # Account Page ?>
 <div id="content">
 	<section class="content-wrapper-3 container-fluid">	
