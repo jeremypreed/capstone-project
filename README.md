@@ -2,7 +2,6 @@
 An e-commerce clothing website
 
 # Features
-<<<<<<< HEAD
 Carousel
 - Automatically rotating banner of images and headlines
 - Carousel controls
@@ -15,15 +14,6 @@ User Management
 Inventory
 - View product categories (Men, Women, etc) and subcategories (Shirts, Jeans, etc)
 - Search products in inventory
-=======
-User Management
-- Create an account
-- Login to your account
-- View account Profile
-
-Inventory
-- View product categories (Men, Women, etc) and subcategories (Shirts, Jeans, etc)
->>>>>>> origin/master
 - Select products and view product details
 - Add and update product categories and subcategories easily
 
@@ -33,17 +23,11 @@ Shopping Cart
 - Update quantity of products in cart
 - View cart quantity, discounts, and totals
 
-<<<<<<< HEAD
 Checkout
 - Set shipping address
 - Pay with paypal
 - Receive confirmation and transaction token
 - Order history and reward points
-=======
-Carousel
-- Automatically rotating banner of images and headlines
-- Carousel controls
->>>>>>> origin/master
 
 # Languages
 - HTML
