@@ -1,4 +1,4 @@
-<section id="header"<?php if($page[0]!=='home'){ echo(' class="normal"'); } ?>>
+<section id="header"<?php if($p[0]!=='home'){ echo(' class="normal"'); } ?>>
 	<a href="<?php echo $_['SITE_URL']; ?>home">
 		<img src="<?php echo $_['SITE_URL']; ?>img/logo.png" class="banner">
 		<img src="<?php echo $_['SITE_URL']; ?>img/logo_sm.png" class="banner-small">
@@ -40,19 +40,19 @@
 					<?php if ($_SESSION['id']) { // Menu to show if logged in ?>
 					<ul class="menu">
 						<?php
-						$cart->summary($dbc);
-						if ($cart->total_quantity) { ?>
+						$c->summary($dbc);
+						if ($c->total_quantity) { ?>
 						<li class="cart">
-							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo '<strong>Total: $'.$cart->discount_subtotal.'</strong>'; ?></a>
+							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo '<strong>Total: $'.$c->discount_subtotal.'</strong>'; ?></a>
 						</li>
 						<li class="cart">
-							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo '<strong>'.$cart->total_quantity.' item(s)</strong>'; ?></a>
+							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo '<strong>'.$c->total_quantity.' item(s)</strong>'; ?></a>
 						</li>
 						<li class="cart">
-							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo 'You save <strong>$'.$cart->savings.'</strong>'; ?></a>
+							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo 'You save <strong>$'.$c->savings.'</strong>'; ?></a>
 						</li>
 						<li class="checkout-logout">
-							<a href="<?php echo $_['SITE_URL']; ?>cart/checkout">
+							<a href="<?php echo $_['SITE_URL']; ?>checkout">
 							<i class="fa fa-angle-right fa-lg fw"></i> &nbsp; Checkout</a>
 						</li><?php
 						} else { ?>
@@ -104,7 +104,7 @@
 		</nav>
 	</div>
 
-	<?php if($page[0]=='home'){ // Show carousel if on home page ?>	
+	<?php if($p[0]=='home'){ // Show carousel if on home page ?>	
 	<div id="carousel">
 		<div class="left-arrow text-center"><a href="#"><i class="fa fa-angle-left fa-lg fw" aria-hidden="true"></i></a></div>
 		<div class="right-arrow text-center"><a href="#"><i class="fa fa-angle-right fa-lg fw" aria-hidden="true"></i></a></div>
@@ -143,8 +143,8 @@
 		<ul>
 			<li><?php echo mysqli_num_rows($i->query($dbc)).' products'; ?></li>
 			<?php 
-			if ($cart->total_quantity) {
-				echo '<li><strong>Total:</strong> $'.$cart->discount_subtotal.'</li>';
+			if ($c->total_quantity) {
+				echo '<li><strong>Total:</strong> $'.$c->discount_subtotal.'</li>';
 			} else {
 				echo '<li>Your cart is empty.</li>';
 			}

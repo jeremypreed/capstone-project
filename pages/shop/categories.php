@@ -11,13 +11,13 @@
 						<a href="<?php echo $_['SITE_URL']; ?>home">Clothing Website</a>
 					</li>
 					<li class="breadcrumb-item active">
-						<?php echo $page[0]; ?>
+						<?php echo $p[0]; ?>
 					</li>
 				</ol>
 			
 				<div class="row product-list">
 					<div class="item col-md-3 col-sm-6 col-xs-12 text-center">
-						<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/men">
+						<a href="<?php echo $_['SITE_URL'].$p[0]; ?>/men">
 						<div class="img">
 							<img src="<?php echo $_['SITE_URL']; ?>img/shop/men.jpg" class="img-responsive">
 							<span class="label img-responsive">Men</span>
@@ -25,7 +25,7 @@
 						</a>
 					</div>
 					<div class="item col-md-3 col-sm-6 col-xs-12 text-center">
-						<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/women">
+						<a href="<?php echo $_['SITE_URL'].$p[0]; ?>/women">
 						<div class="img">
 							<img src="<?php echo $_['SITE_URL']; ?>img/shop/women.jpg" class="img-responsive">
 							<span class="label">Women</span>
@@ -33,7 +33,7 @@
 						</a>
 					</div>
 					<div class="item col-md-3 col-sm-6 col-xs-12 text-center">
-						<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/boys">
+						<a href="<?php echo $_['SITE_URL'].$p[0]; ?>/boys">
 						<div class="img">
 							<img src="<?php echo $_['SITE_URL']; ?>img/shop/boys.jpg" class="img-responsive">
 							<span class="label">Boys</span>
@@ -41,7 +41,7 @@
 						</a>
 					</div>
 					<div class="item col-md-3 col-sm-6 col-xs-12 text-center">
-						<a href="<?php echo $_['SITE_URL'].$page[0]; ?>/girls">
+						<a href="<?php echo $_['SITE_URL'].$p[0]; ?>/girls">
 						<div class="img">
 							<img src="<?php echo $_['SITE_URL']; ?>img/shop/girls.jpg" class="img-responsive">
 							<span class="label">Girls</span>

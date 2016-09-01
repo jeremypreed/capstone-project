@@ -1,7 +1,7 @@
 <?php
 if ($_SESSION['id']){
 	# If active session, redirect to account page
-	header('Location: '.$_['SITE_URL'].'account');
+	redirect($_['SITE_URL'].'account');
 } else {
 	# Runs when user submits form
 	if ($_POST['submit']) {
@@ -20,6 +20,7 @@ if ($_SESSION['id']){
 			$user_email = $row[4]; // User Email
 			$user_register_date = $row[6]; // Date user joined
 			$user_last_login = $row[7]; // User last login
+			$user_reward_points= $row[8]; // User last login
 		}
 		# Check user submitted email and password match DB
 		if ($email == $user_email && $password == $user_password) {
@@ -34,11 +35,13 @@ if ($_SESSION['id']){
 			$_SESSION['email'] = $user_email;
 			$_SESSION['register_date'] = $user_register_date;
 			$_SESSION['last_login'] = $user_last_login;
+			$_SESSION['reward_points'] = $user_reward_points;
+			$_SESSION['shipping_price'] = 7.00;
 			$_SESSION['welcome'] = true;
-			header('Location: '.$_['SITE_URL'].'account/profile');
+			redirect($_['SITE_URL'].'account/profile');
 		} else { 
 			# User submitted email or password does not match DB
-			error('Incorrect email or password'); 
+			error('Incorrect email or password.'); 
 		}
 	}
 }

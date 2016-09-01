@@ -10,7 +10,7 @@
 					<h2>Shopping Cart</h2>
 <?php 
 if ($_SESSION['id']){
-	$result = $cart->query($dbc);
+	$result = $c->query($dbc);
 	$cartx = 0;
 	if (mysqli_num_rows($result)>0){ ?>
 	
@@ -22,8 +22,8 @@ if ($_SESSION['id']){
 	
 	<?php
 		while ($row = mysqli_fetch_row($result)){
-			$cart->columns($row);
-			$product_result = $i->query($dbc,-1, -1, $cart->product_id); // Query DB for row
+			$c->columns($row);
+			$product_result = $i->query($dbc,-1, -1, $c->product_id); // Query DB for row
 			$i->columns(mysqli_fetch_row($product_result)); // Fetch Column
 			if ($cartx%2==0){$alt='';}else{$alt='alt';}
 			$cartx++;
@@ -41,12 +41,12 @@ if ($_SESSION['id']){
 	</div>
 	<div class="col-md-2 col-xs-4 cart-items text-center">
 		<form method="post" action="#">
-			<input type="hidden" name="cart_id" value="<?php echo $cart->id; ?>" />
+			<input type="hidden" name="cart_id" value="<?php echo $c->id; ?>" />
 			<select name="quantity">
 				<?php
 				for ($x=1;$x<11;$x++){
 					switch($x){
-						case $cart->quantity:
+						case $c->quantity:
 							echo '<option value="'.$x.'" selected>'.$x.'</option>';
 							break;
 						default:
@@ -62,18 +62,18 @@ if ($_SESSION['id']){
 	</div>
 	<div class="col-md-2 col-xs-8 cart-price text-right">
 	<?php
-	if ($cart->quantity>1){ echo '<span class="small">$'.$i->discount_price.' &times '.$cart->quantity.'</span><br>'; }
+	if ($c->quantity>1){ echo '<span class="small">$'.$i->discount_price.' &times '.$c->quantity.'</span><br>'; }
 	if ($i->discount>0){
-		echo '<span class="discount" title="'.$i->percent_off.' off">$'.($i->price*$cart->quantity).'</span><span class="price-red">$'.($i->discount_price*$cart->quantity).'</span><br>
-		<span class="small">'.$i->percent_off.' Off<br> You save $'.($i->amount_off*$cart->quantity).'</span>';
+		echo '<span class="discount" title="'.$i->percent_off.' off">$'.($i->price*$c->quantity).'</span><span class="price-red">$'.($i->discount_price*$c->quantity).'</span><br>
+		<span class="small">'.$i->percent_off.' Off<br> You save $'.($i->amount_off*$c->quantity).'</span>';
 	} else {
-		echo '<span class="price">$'.($i->price*$cart->quantity).'</span>';			
+		echo '<span class="price">$'.($i->price*$c->quantity).'</span>';			
 	}
 	?>
 	</div>
 </div>
 <?php	}
-$cart->summary($dbc);
+$c->summary($dbc);
 # total / checkout ?>
 	<div class="row cart no-padding">
 		<div class="col-md-8"></div>
@@ -82,13 +82,15 @@ $cart->summary($dbc);
 	
 	<div class="row cart text-right">
 		<div class="col-md-7"></div>
-		<div class="col-md-5 subtotal"><?php echo '$'.$cart->discount_subtotal.'<br><span class="small">You save $'.$cart->savings.' on '.$cart->total_quantity.' item(s)</span>'; ?></div>
+		<div class="col-md-5 subtotal"><?php echo '$'.$c->discount_subtotal.'<br><span class="small">You save $'.$c->savings.' on '.$c->total_quantity.' item(s)</span>'; ?></div>
 	</div>
 	
 	<div class="row cart text-center no-padding">
 		<div class="col-md-9"></div>
 		<div class="col-md-3 cart-checkout">
-			<button type="submit" value="Checkout">Checkout</button>
+			<form method="POST" action="<?php echo $_['SITE_URL'].'checkout'; ?>">
+				<button type="submit" value="Checkout">Checkout</button>
+			</form>
 		</div>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 <div id="shop-panel">
 	<?php
-	$c = count($i->categories);
-	for ($x=0; $x<$c; $x++){ 
+	$cat = count($i->categories);
+	for ($x=0; $x<$cat; $x++){ 
 	# Category ?>
 	<h2 class="panel-title">
 		  <?php echo '<a href="'.$_["SITE_URL"].'shop/'.$i->categories[$x].'">'.$i->categories[$x].'</a>'; ?>

@@ -1,5 +1,33 @@
-# capstone-project
+# Clothing Website
 An e-commerce clothing website
+
+# Features
+Carousel
+- Automatically rotating banner of images and headlines
+- Carousel controls
+
+User Management
+- Create an account
+- Login to your account
+- View account profile
+
+Inventory
+- View product categories (Men, Women, etc) and subcategories (Shirts, Jeans, etc)
+- Search products in inventory
+- Select products and view product details
+- Add and update product categories and subcategories easily
+
+Shopping Cart
+- Add products to cart
+- Remove products from cart
+- Update quantity of products in cart
+- View cart quantity, discounts, and totals
+
+Checkout
+- Set shipping address
+- Pay with paypal
+- Receive confirmation and transaction token
+- Order history and reward points
 
 # Languages
 - HTML

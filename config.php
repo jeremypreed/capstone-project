@@ -29,10 +29,16 @@ $MSG = array(
 	'REGISTER_LOGIN' => '<p><a href="'.$_['SITE_URL'].'register">Register</a> to save your cart, manage wishlists, and more.</p><p><a href="'.$_['SITE_URL'].'login">Log in</a>, if you already have an account.</p>'
 );
 
+# Messsage functions
 function alert($m){
 	echo '<div id="msg" class="open"><div class="alert">'.$m.'<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
 }
 
 function error($m){
 	echo '<div id="msg" class="open"><div class="alert error">'.$m.'<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
+}
+
+# General Functions
+function redirect($url){
+	echo '<script type="text/javascript">'.'window.location = "' . $url . '";'.'</script>';
 }

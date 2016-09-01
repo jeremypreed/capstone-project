@@ -77,8 +77,6 @@
 	<ul>
 		<li class="copyright">© 2016 <?php echo $_['SITE_TITLE']; ?></li>
 		<li>/</li>
-		<li><a href="<?php echo $_['SITE_URL']; ?>admin">Admin</a></li>
-		<li>/</li>
 		<li><a href="https://github.com/jeremypreed/clothingwebsite">GitHub</a></li>
 	</ul>
 </section>

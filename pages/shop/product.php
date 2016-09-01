@@ -1,6 +1,6 @@
 <?php
 # Find ID in DB
-$result = $i->query($dbc,$page[1], $page[2], $page[3], 'id', 1); // Query DB for row
+$result = $i->query($dbc,$p[1], $p[2], $p[3], 'id', 1); // Query DB for row
 $i->columns(mysqli_fetch_row($result)); // Fetch Column
 
 if (!$i->id) {
@@ -15,7 +15,7 @@ else {
 				<div class="col-md-6 column text-center product-img">
 					<img src="<?php echo $_['SITE_URL'].$i->image; ?>">
 				</div>
-				<div class="col-md-6 column">
+				<div class="col-md-6 column">				
 					<p class="title"><?php echo $i->name ?></p>
 					<p class="info">
 					<?php

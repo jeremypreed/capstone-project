@@ -11,20 +11,20 @@
 						<?php echo '<a href="'.$_["SITE_URL"].'home">'.$_["SITE_TITLE"].'</a>'; ?>
 					</li>
 					<li class="breadcrumb-item">
-						<?php echo '<a href="'.$_["SITE_URL"].$page[0].'">'.$page[0].'</a>'; ?>
+						<?php echo '<a href="'.$_["SITE_URL"].$p[0].'">'.$p[0].'</a>'; ?>
 					</li>
 					<li class="breadcrumb-item">
-						<?php echo '<a href="'.$_["SITE_URL"].$page[0].'/'.$page[1].'">'.$page[1].'</a>'; ?>
+						<?php echo '<a href="'.$_["SITE_URL"].$p[0].'/'.$p[1].'">'.$p[1].'</a>'; ?>
 					</li>
 					<li class="breadcrumb-item active">
-						<?php echo $page[2]; ?>
+						<?php echo $p[2]; ?>
 					</li>
 				</ol>
 				
 				<div class="row">		
 				
 <?php
-$result = $i->query($dbc,$page[1],$page[2]);
+$result = $i->query($dbc,$p[1],$p[2]);
 if (mysqli_num_rows($result)>0){
 	while ($row = mysqli_fetch_row($result)){
 		$i->columns($row);
