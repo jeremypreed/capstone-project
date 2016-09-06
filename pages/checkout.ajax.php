@@ -1,13 +1,11 @@
 <?php
 session_start();
-
 # Address Information
 $_SESSION['address'] = $_POST['address'];
 $_SESSION['address_apt'] = $_POST['address_apt'];
 $_SESSION['city'] = $_POST['city'];
 $_SESSION['state'] = $_POST['state'];
 $_SESSION['zipcode'] = $_POST['zipcode'];
-
 # Shipping Method
 if ($_POST['ship']){
 	switch ($_POST['ship']){

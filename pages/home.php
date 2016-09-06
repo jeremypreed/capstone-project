@@ -27,12 +27,13 @@ while ($row = mysqli_fetch_row($result)){
 		</div>
 	</a>
 </div>				
-<?php
+<?php # End Display Product
 }
 ?>
 			</div>
 		</div>
 	</section>
+	<!-- Most Popular -->
 	<section class="content-wrapper-2">
 		<div class="container">
 			<h1><span>Most Popular</span></h1><br>
@@ -60,17 +61,18 @@ while ($row = mysqli_fetch_row($result)){
 		</div>
 	</a>
 </div>				
-<?php
+<?php # End Display Product
 }
 ?>
 			</div>
 		</div>
 	</section>
+	<!-- On Sale -->
 	<section class="content-wrapper-1">
 		<div class="container text-justify">
 			<h1><span>On Sale</span></h1><br>
 			<div class="row">
-<?php // Display 4 bestest discounts
+<?php // Display 4 best discounts
 $result = $i->query($dbc, -1, -1, -1, discount, 4, true);
 while ($row = mysqli_fetch_row($result)){
 	$i->columns($row);
@@ -93,10 +95,10 @@ while ($row = mysqli_fetch_row($result)){
 		</div>
 	</a>
 </div>				
-<?php
+<?php # End Display Product
 }
 ?>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+</div>

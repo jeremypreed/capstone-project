@@ -38,14 +38,11 @@ else if ($p[0]=='confirmation') { include_once('pages/confirm.php'); } // Checko
 else if ($p[0]=='account') { include_once('pages/account.php'); } // Account
 else if ($p[0]=='login') { include_once('pages/login.php'); } // Login
 else if ($p[0]=='register') { include_once('pages/register.php'); } // Register
-else if ($p[0]=='logout') { 
-	# Logout
+else if ($p[0]=='logout') { // Logout
 	session_destroy(); // Destroy session data
-	redirect($_['SITE_URL'].'home'); } // Redirect to home
-else {
-	# Redirect to home
-	redirect($_['SITE_URL'].'home');
+	redirect($_['SITE_URL'].'home'); // Redirect to home
 	die(); }
+else { redirect($_['SITE_URL'].'home'); } // Redirect to home
 # Footer
 include_once('pages/layout/footer.php');
 ?>

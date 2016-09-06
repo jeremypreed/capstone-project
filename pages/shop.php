@@ -13,16 +13,16 @@ else if ($p[0]&&!isset($p[1])) { // Shop selected but not category
 	include_once('pages/shop/categories.php'); }
 else { 
 	# Page not found ?>
-	<div id="content">
-		<section class="content-wrapper-3 container-fluid">	
-			<div class="row">
-				<div class="col-md-3 column panel-content">
-					<?php include_once('layout/shop-panel.php') ?>
-				</div>
-				<div class="col-md-9 main-content">
-					<?php echo $MSG['NOT_FOUND']; ?>
-				</div>
+<div id="content">
+	<section class="content-wrapper-3 container-fluid">	
+		<div class="row">
+			<div class="col-md-3 column panel-content">
+				<?php include_once('layout/shop-panel.php') ?>
 			</div>
-		</section>
-	</div>
+			<div class="col-md-9 main-content">
+				<?php echo $MSG['NOT_FOUND']; ?>
+			</div>
+		</div>
+	</section>
+</div>
 <?php }

@@ -5,7 +5,6 @@
 				<?php include_once('pages/layout/shop-panel.php') ?>
 			</div>
 			<div class="col-md-9 main-content">
-			
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">
 						<a href="<?php echo $_['SITE_URL']; ?>home">Clothing Website</a>
@@ -17,7 +16,6 @@
 						<?php echo $p[1]; ?>
 					</li>
 				</ol>
-			
 				<div class="row product-list">
 					<?php
 					$sc = count($i->subcategories);

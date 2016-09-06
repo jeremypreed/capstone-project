@@ -1,9 +1,5 @@
-<!-- Account Panel -->
-
 <?php 
-// Show if logged in
-if ($_SESSION['id']){ ?>
-<br>
+if ($_SESSION['id']){ // Logged In: Show Panel?>
 <ul>
 	<li class="name"><?php echo $_SESSION['first_name']." ".$_SESSION['last_name']; ?></li>
 	<li><strong><?php echo $_SESSION['reward_points']; ?></strong> Reward Points</li>
@@ -38,9 +34,7 @@ if ($p[1]=="wishlist") {
 	// Wishlists link
 	echo '<li><i class="fa-li fa fa-angle-right"></i><a href="'.$_['SITE_URL'].'account/wishlist">Manage Wishlist</a></li>'; } ?>
 	<li><i class="fa-li fa fa-angle-right"></i><a href="<?php echo $_['SITE_URL']; ?>logout">Log out</a></li>
-</ul>
-<?php
-	// Show if not logged in
-	} else {
+</ul><?php
+	} else { // Not Logged In: Show login/register links
 	echo '<h3>Account</h3><hr>'.$MSG['REGISTER_LOGIN'];
-} ?>
+}

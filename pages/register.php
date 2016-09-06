@@ -68,7 +68,7 @@ if ($_SESSION['id']){
 		}
 	}
 }
-# Login Page ?>
+# Register Page ?>
 <div id="login">
 	<section class="content-wrapper-1">
 		<div class="container">

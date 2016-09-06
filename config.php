@@ -26,19 +26,26 @@ $MSG = array(
 	'CART_EMPTY' => '<p>Your cart is empty.</p>',
 	'LOGIN' => '<p>You\'re not logged in.</p>',
 	'LOGIN_TOADD' => '<p>You need to <a href="'.$_['SITE_URL'].'login">log in</a> to buy products.</p>',
+	# General
 	'REGISTER_LOGIN' => '<p><a href="'.$_['SITE_URL'].'register">Register</a> to save your cart, manage wishlists, and more.</p><p><a href="'.$_['SITE_URL'].'login">Log in</a>, if you already have an account.</p>'
 );
 
 # Messsage functions
 function alert($m){
-	echo '<div id="msg" class="open"><div class="alert">'.$m.'<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
+	$alert = '<div id="msg" class="open"><div class="alert">';
+	$alert .= $m;
+	$alert .= '<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
+	echo $alert;
 }
 
 function error($m){
-	echo '<div id="msg" class="open"><div class="alert error">'.$m.'<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
+	$error = '<div id="msg" class="open"><div class="alert error">';
+	$error .= $m;
+	$error .= '<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
+	echo $error;
 }
 
-# General Functions
+# General functions
 function redirect($url){
 	echo '<script type="text/javascript">'.'window.location = "' . $url . '";'.'</script>';
 }
