@@ -118,17 +118,17 @@ class Cart {
 				$this->columns($row);
 				$product_r = $i->query($dbc,-1, -1, $this->product_id); // Query DB for row
 				$i->columns(mysqli_fetch_row($product_r)); // Fetch Column
-				$this->subtotal += number_format((float)($i->price*$this->quantity), 2, '.', '');
-				$this->discount_subtotal += number_format((float)($i->discount_price*$this->quantity), 2, '.', '');
-				$this->savings += number_format((float)($i->amount_off*$this->quantity), 2, '.', '');
-				$this->total_quantity += (1*$this->quantity);
+				$this->subtotal += cash($i->price*$this->quantity);
+				$this->discount_subtotal += cash($i->discount_price*$this->quantity);
+				$this->savings += cash($i->amount_off*$this->quantity);
+				$this->total_quantity += cash(1*$this->quantity);
 			}
 			$this->total();
 		}
 	}
 	
 	public function tax($subtotal){
-		return number_format((float)($subtotal*$this->tax_rate), 2, '.', '');
+		return cash($subtotal*$this->tax_rate);
 	}
 	
 	public function total(){
@@ -136,8 +136,8 @@ class Cart {
 		$this->actual_total = $this->discount_subtotal;
 		if ($this->actual_total>0) {
 			$this->actual_total += $_SESSION['shipping_price'];
-			$this->actual_total += number_format((float)($this->tax($this->discount_subtotal)), 2, '.', '');
+			$this->actual_total += cash($this->tax($this->discount_subtotal));
 		}
-		$_SESSION['purchase_total'] = $this->actual_total;	
+		$_SESSION['purchase_total'] = cash($this->actual_total);	
 	}
 }

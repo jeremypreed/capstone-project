@@ -223,13 +223,13 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 					box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
 				ul.menu li
 					display: block				
-					opacity: 0
+					//opacity: 0
 					
 					@for $i from 1 through 6
 						&:nth-child(#{$i})
 							animation:
 								name: submenu
-								duration: 200ms * $i
+								duration: 150ms * $i
 								timing-function: ease-in-out
 								fill-mode: forwards
 						
@@ -315,6 +315,50 @@ $sourcesans: 'Source Sans Pro', sans-serif;
 			i
 				font-family: $raleway
 				font-weight: 200
+//-- Header Media Queries
+@media (max-width: 1000px)
+	#header
+		#nav
+			#search-bar
+				display: none // Remove search bar
+		#carousel
+			.left-arrow, .right-arrow // Carousel arrows get smaller
+				width: 40px
+				height: 40px
+				font-size: 20px
+				line-height: 40px
+				a:link,a:visited
+					width: 40px
+					height: 40px
+			.content // resize width of content
+				width: 500px
+				margin-left: -250px
+				font-size: 26px
+@media (max-width: 835px)
+	#header
+		#nav
+			display: none // Remove regular nav
+		#nav-info
+			display: none // and nav info
+		#nav-mobile // Show mobile nav
+			display: block
+@media (max-width: 600px)
+	#header.navbar-fixed-top
+		.banner-small
+			top: 12px
+			width: 220px
+			height: auto
+	#header
+		.banner
+			width: 200px // Logo on home page gets smaller
+		#carousel
+			.left-arrow, .right-arrow // Remove carousel arrows
+				display: none
+			.content // resize carousel content
+				width: 100%
+				margin-left: 0
+				left: 0%
+				font-size: 20px
 //-- Content
 #content, #recommended
 	font-size: 18px

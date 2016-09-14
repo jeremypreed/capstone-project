@@ -126,7 +126,7 @@ echo '<input type="radio" name="ship_method" value="3" '.$ship3.'/> $30 - Overni
 					<!-- Subtotal -->
 					<div class="col-md-2 head">Subtotal:</div>
 					<div class="col-md-6" id="subTotal">
-						<?php echo '$'.$c->discount_subtotal; ?>	
+						<?php echo '$'.cash($c->discount_subtotal); ?>	
 					</div>			
 			</div>
 
@@ -146,7 +146,7 @@ echo '<input type="radio" name="ship_method" value="3" '.$ship3.'/> $30 - Overni
 					<div class="col-md-6" id="shippingTotal">
 						<?php
 						if (isset($_SESSION['shipping_price'])){
-							echo '$'.$_SESSION['shipping_price'];
+							echo '$'.cash($_SESSION['shipping_price']);
 						} else {
 							echo '$7.00';
 						}
@@ -160,7 +160,7 @@ echo '<input type="radio" name="ship_method" value="3" '.$ship3.'/> $30 - Overni
 					<!-- Total -->
 					<div class="col-md-2 head">Total:</div>
 					<div class="col-md-6" id="actualTotal">
-						<?php echo '$'.$_SESSION['purchase_total']; ?>	
+						<?php echo '$'.cash($_SESSION['purchase_total']); ?>	
 					</div>			
 			</div>
 			

@@ -112,7 +112,7 @@ class Inventory {
 		$this->discount = $row[8]; // Product Discount
 		$this->image = $row[9]; // Product Image 
 		$this->percent_off = round($this->discount * 100).'%'; // Percentage off
-		$this->discount_price = number_format((float)$this->price-($this->price*$this->discount), 2, '.', ''); // Price /w discount
-		$this->amount_off = number_format((float)$this->price-$this->discount_price, 2, '.', ''); // Amount off
+		$this->discount_price = cash($this->price-($this->price*$this->discount)); // Price /w discount
+		$this->amount_off = cash($this->price-$this->discount_price); // Amount off
 	}
 }

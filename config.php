@@ -32,20 +32,28 @@ $MSG = array(
 
 # Messsage functions
 function alert($m){
-	$alert = '<div id="msg" class="open"><div class="alert">';
+	# Display alert message at bottom of page
+	$alert = '<div id="msg" class="open"><div class="alert"><div class="col-md-10">';
 	$alert .= $m;
-	$alert .= '<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
+	$alert .= '</div><div class="col-md-2"><a>Close <i class="fa fa-remove fw"></i></a></div></div></div>';
 	echo $alert;
 }
 
 function error($m){
-	$error = '<div id="msg" class="open"><div class="alert error">';
+	# Display error message at bottom of page
+	$error = '<div id="msg" class="open"><div class="alert error"><div class="col-md-10">';
 	$error .= $m;
-	$error .= '<a>Close <i class="fa fa-remove fw"></i></a></div></div>';
+	$error .= '</div><div class="col-md-2"><a>Close <i class="fa fa-remove fw"></i></a></div></div></div>';
 	echo $error;
 }
 
 # General functions
 function redirect($url){
+	# Javascript redirect to $url
 	echo '<script type="text/javascript">'.'window.location = "' . $url . '";'.'</script>';
+}
+
+function cash($x){
+	# Convert $x to float in form ($)xx.xx
+	return number_format((float)$x, 2, '.', '');
 }

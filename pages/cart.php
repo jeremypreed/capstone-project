@@ -62,10 +62,11 @@ if ($_SESSION['id']){
 	</div>
 	<div class="col-md-2 col-xs-8 cart-price text-right">
 	<?php
-	if ($c->quantity>1){ echo '<span class="small">$'.$i->discount_price.' &times '.$c->quantity.'</span><br>'; }
+	if ($c->quantity>1){
+		echo '<span class="small">$'.cash($i->discount_price).' &times '.$c->quantity.'</span><br>'; }
 	if ($i->discount>0){
-		echo '<span class="discount" title="'.$i->percent_off.' off">$'.($i->price*$c->quantity).'</span><span class="price-red">$'.($i->discount_price*$c->quantity).'</span><br>
-		<span class="small">'.$i->percent_off.' Off<br> You save $'.($i->amount_off*$c->quantity).'</span>';
+		echo '<span class="discount" title="'.$i->percent_off.' off">$'.cash($i->price*$c->quantity).'</span><span class="price-red">$'.cash($i->discount_price*$c->quantity).'</span><br>';
+		echo '<span class="small">'.$i->percent_off.' Off<br> You save $'.cash($i->amount_off*$c->quantity).'</span>';
 	} else {
 		echo '<span class="price">$'.($i->price*$c->quantity).'</span>';			
 	}
@@ -82,7 +83,11 @@ $c->summary($dbc);
 	
 	<div class="row cart text-right">
 		<div class="col-md-7"></div>
-		<div class="col-md-5 subtotal"><?php echo '$'.$c->discount_subtotal.'<br><span class="small">You save $'.$c->savings.' on '.$c->total_quantity.' item(s)</span>'; ?></div>
+		<div class="col-md-5 subtotal">
+			<?php 
+			echo '$'.cash($c->discount_subtotal).'<br>';
+			echo '<span class="small">You save $'.cash($c->savings).' on '.$c->total_quantity.' item(s)</span>'; ?>
+		</div>
 	</div>
 	
 	<div class="row cart text-center no-padding">

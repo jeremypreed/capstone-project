@@ -2,7 +2,7 @@
 <div class="container-fluid text-center" id="mailing-list">
     <div class="container">
 		<div class="row">	
-			<div class="col-xs-12 col-md-12 column text-left">
+			<div class="col-xs-12 col-md-12 column text-center">
 				<p>Stay up to date with the latest fashions &nbsp;
 				<strong>Subscribe now &nbsp;
 				<i class="fa fa-hand-o-right fa-lg fw" aria-hidden="true"></i> &nbsp;
@@ -17,7 +17,7 @@
 <footer id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-xs-6 col-md-3 column">
+            <div class="col-xs-6 col-sm-6 col-md-3 column">
                 <h4><?php echo $_['SITE_TITLE']; ?></h4>
                 <ul class="nav">
                     <li>
@@ -38,7 +38,7 @@
 					</li>
                 </ul>
             </div>
-            <div class="col-xs-6 col-md-3 column">
+            <div class="col-xs-6 col-sm-6 col-md-3 column">
                 <h4>Connect</h4>
                 <ul class="nav">
                     <li>
@@ -55,7 +55,7 @@
 					</li>
                 </ul>
             </div>
-			<div class="col-xs-6 col-md-3 column">
+			<div class="col-xs-12 col-sm-12 col-md-3 column">
                 <h4>Contact</h4>
                 <ul class="nav">
                     <li><br></li>

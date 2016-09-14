@@ -43,7 +43,7 @@
 						$c->summary($dbc);
 						if ($c->total_quantity) { ?>
 						<li class="cart">
-							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo '<strong>Total: $'.$c->discount_subtotal.'</strong>'; ?></a>
+							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo '<strong>Total: $'.cash($c->discount_subtotal).'</strong>'; ?></a>
 						</li>
 						<li class="cart">
 							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo '<strong>'.$c->total_quantity.' item(s)</strong>'; ?></a>
@@ -144,7 +144,7 @@
 			<li><?php echo mysqli_num_rows($i->query($dbc)).' products'; ?></li>
 			<?php 
 			if ($c->total_quantity) {
-				echo '<li><strong>Total:</strong> $'.$c->discount_subtotal.'</li>';
+				echo '<li><strong>Total:</strong> $'.cash($c->discount_subtotal).'</li>';
 			} else {
 				echo '<li>Your cart is empty.</li>';
 			}
