@@ -1,0 +1,27 @@
+<div id="carousel">
+	<div class="left-arrow text-center">
+		<a href ng-click="carousel.setTab(carousel.tab-1)">
+			<i class="fa fa-angle-left fa-lg fw" aria-hidden="true"></i>
+		</a>
+	</div>
+	<div class="right-arrow text-center">
+		<a href ng-click="carousel.setTab(carousel.tab+1)">
+			<i class="fa fa-angle-right fa-lg fw" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+	<div class="tabs">
+		<a href 
+			ng-repeat="slide in carousel.slides" 
+			ng-click="carousel.setTab($index)" 
+			ng-class="{active:carousel.isSet($index)}"></a>
+	</div>
+	
+	<div class="content" 
+		ng-repeat="slide in carousel.slides" 
+		ng-show="carousel.isSet($index)" 
+		ng-class="slide.align"
+		ng-style="{'background-image':'url({{slide.image}})'}">	
+		<p ng-bind-html="slide.content"></p>
+	</div>
+</div>

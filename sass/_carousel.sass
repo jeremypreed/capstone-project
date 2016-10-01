@@ -1,0 +1,77 @@
+#header
+	#carousel
+		z-index: 0 !important
+		position: absolute
+		height: 600px
+		width: 100%
+		.content
+			position: absolute
+			top: 0px
+			height: 600px
+			width: 100%
+			font-size: 32px
+			color: #fff
+			text-shadow: 0px 0px 3px $color3
+			background-size: cover !important
+			background-position: center center
+			.text
+				position: absolute
+				top: 250px
+				bottom: 50%
+				width: 800px
+				left: 50%
+				margin-left: -400px
+				span
+					background-color: $transparentbg
+					padding: 4px 10px
+					margin: 5px
+					font-weight: 200
+					font-family: $raleway
+				strong
+					font-family: $raleway
+					font-weight: 900
+				i
+				font-family: $raleway
+				font-weight: 200
+		.left-arrow, .right-arrow
+			font-size: 30px
+			line-height: 50px
+			width: 50px
+			height: 50px
+			position: absolute
+			display: block
+			top: 275px
+			z-index: 1 !important
+			a:link,a:visited
+				display: block
+				width: 50px
+				height: 50px
+				background-color: $transparentbg
+				color: #fff
+			a:hover,a:active
+				background-color: $color4
+				color: $color1
+		.left-arrow
+			left: 0px
+		.right-arrow
+			right: 0px
+		.tabs
+			position: absolute
+			z-index: 1 !important
+			top: 550px
+			width: 100px
+			left: 50%
+			margin-left: -50px
+			a:link,a:visited
+				float: left
+				background-color: $color3
+				//border: 2px solid #fff
+				display: block
+				width: 20px
+				height: 20px
+				//border-radius: 50%
+				margin: 2px
+			a:hover,a:active
+				background-color: $color4
+			a.active
+				background-color: #fff

@@ -1,0 +1,288 @@
+#content, #recommended
+	font-size: 18px
+	h1
+		font-family: $raleway
+		text-align: center
+		border-bottom: 3px solid $color2
+		line-height: 0
+		padding: 0
+		margin: 10px 0 30px 0
+		text-transform: uppercase
+		letter-spacing: 2px
+		color: $color2
+		span
+			background-color: #fff
+			padding: 0 15px
+	.content-wrapper-1
+		padding: 60px 0 60px 0
+	.content-wrapper-2
+		padding: 60px 0 60px 0
+		background-color: $color5
+		h1
+			span
+				background-color: $color5
+	.content-wrapper-3
+		margin: 20px 0 20px 0
+		.panel-content
+			font-size: 16px
+			#shop-panel
+				width: 100%
+				h2
+					font-family: $raleway
+					font-size: 24px
+					font-weight: 700
+					background-color: $color3
+					color: #fff
+					text-align: center
+					text-transform: capitalize
+					padding: 5px 0 5px 0
+				li
+					a
+						position: relative
+						left: -10px
+						color: $color3
+						text-transform: capitalize
+					.product-count
+						position: relative
+						left: -10px
+						background-color: $color2
+						color: #fff
+						padding: 0 5px
+			.fixed
+				position: fixed
+				top: 80px
+				width: 300px
+				transition: all 0.4s ease
+			ul
+				list-style-type: none
+				margin-left: 30px
+				margin-top: 10px
+				font-size: 18px
+				li.current-page
+					background-color: $color5
+					font-weight: bold
+					border-radius: 3px
+				li.name
+					font-weight: bold
+		.item
+			.img
+				border: solid 3px transparent
+		.main-content
+			.product-list
+				span.label
+					position: absolute
+					width: 50%
+					left: 25%
+					height: 35px
+					line-height: 15px
+					bottom: 35px
+					padding: 10px
+					border-radius: 0px
+					font-weight: 900
+					font-size: 20px
+					background-color: $color2
+					text-transform: capitalize
+				.item:hover
+					span.label
+						background-color: $color2
+			.breadcrumb-item
+				text-transform: capitalize
+				a:link, a:visited
+					font-weight: bold
+					color: $color2
+			// Cart
+			.cart
+				padding: 20px 0 20px 0
+				border-radius: 3px
+				font-size: 16px
+				hr
+					border-top: solid 1px $color5
+				.cart-head
+					margin: 0 0 5px 0
+					padding: 5px
+					padding-right: 20px
+					font:
+						weight: bold
+						size: 18px
+					background-color: $color3
+					color: #fff
+				.cart-img
+					img
+						width: 75%
+						height: auto
+						border: solid 2px #000
+						&:hover
+							border: solid 2px $color2
+				.cart-desc
+					padding: 20px 0 0 0
+					h4
+						font-weight: 700
+				.cart-items
+					padding: 10px 0 0 0
+					font-size: 18px
+					button.update,select
+						height: 40px
+						padding: 4px
+					button.remove
+						margin-top: 5px
+						color: #000 !important
+						&:hover
+							text-decoration: none
+							color: $color4 !important
+				.subtotal
+					font:
+						size: 30px
+						weight: 700
+					span.small
+						font:
+							size: 18px
+							weight: 400
+				.cart-price
+					padding: 0px 20px 0 0
+					font-size: 20px
+					span.price-red
+						font-weight: 700
+						color: #e00
+					span.price
+						font-weight: 700
+					span.discount
+						margin-right: 6px
+						font:
+							weight: 400
+							style: italic
+						text-decoration: line-through
+						color: #000
+					span.small
+						font-size: 16px
+				.cart-checkout
+					button
+						padding: 8px 30px
+						font:
+							size: 28px
+							weight: 700
+						//background-color: $color2
+						//border: solid 3px #000
+						//border-radius: 2px
+						//&:hover
+						//	background-color: $color4
+				.checkout
+					input
+						width: 100%
+						border: solid 0 #999
+						padding: 4px
+						text-align: center
+						color: #333
+						background-color: $color5
+						font-weight: 500
+					div
+						padding-bottom: 2px
+					.head
+						padding: 4px
+						font-size: 16px
+						font-weight: 700
+					.ship-method
+						input
+							width: 50px
+				.paypal
+					button
+						border: solid 0
+						&:hover
+							background-color: transparent
+					
+			.alt
+				background-color: $color5
+			.no-padding
+				padding: 0
+			.info-row
+				margin: 2px 0 6px 0
+	.item
+		float: left
+		padding: 0 10px 15px 10px
+		//transition: all 0.4s ease-in-out
+		a
+			text-decoration: none
+			color: #000
+		.img
+			img
+				width: 100%
+				height: auto
+				margin: 0 auto
+				border: solid 3px transparent
+		.info
+			padding-bottom: 10px
+			.title
+				position: relative
+				top: 2px
+				font-weight: 700
+			.price-red
+				//font-weight: 700
+				color: #e00
+			.price
+				font-weight: 500
+			.discount
+				margin-right: 6px
+				font:
+					weight: 400
+					style: italic
+				text-decoration: line-through
+				color: #000
+		&:hover
+			.img
+				img
+					border: solid 3px $color2
+			.info
+				background-color: $color2
+	.more // more div: home page-- not using
+		position: relative
+		left: 50%
+		float: left
+		width: 250px
+		height: 100px
+		margin-left: -125px
+		background-color: #eee
+		ul
+			list-style-type: none
+			margin: 0 auto
+			li
+				float: left
+				padding: 5px
+#content.product-view // Product Page
+	padding: 40px 0 40px 0
+	.product-img
+		img
+			width: 450px
+			height: auto
+	.title
+		font-size: 28px
+	.info
+		padding-bottom: 20px
+		font-size: 22px
+		.price-red
+			font-weight: 700
+			color: #e00
+		.price
+			font-weight: 700
+		.discount
+			margin-right: 6px
+			font:
+				weight: 400
+				style: italic
+			text-decoration: line-through
+			color: #000
+	select
+		width: 150px
+		height: 50px
+	.product-details-head
+		margin: 40px 0 10px 0
+		font:
+			weight: 700
+			size: 18px
+	.product-details
+		width: 80%
+		height:250px
+		margin: 0 0 20px 0
+		font-size: 16px
+		overflow-y: scroll
+	button
+		width: 250px
+		height: 50px
