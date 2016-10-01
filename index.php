@@ -10,7 +10,7 @@ $i = new Inventory(); // Create Inventory Object. I is short for Inventory
 $c = new Cart($dbc); // Create Cart Object. C is short for Cart
 ?>
 <!DOCTYPE HTML>
-<html lang="en-US">
+<html lang="en-US" ng-app="cw">
 <head>
 	<meta charset="UTF-8">
 	<title><?php echo $_['SITE_TITLE'].' / '.ucfirst($p[0]); ?></title>
@@ -21,7 +21,10 @@ $c = new Cart($dbc); // Create Cart Object. C is short for Cart
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,200' rel='stylesheet' type='text/css'><!-- Google Font Source Sans -->
 	<script src="https://use.fontawesome.com/84aba4ed8a.js"></script> <!-- Font Awesome -->
 	<script src="<?php echo $_['SITE_URL']; ?>js/lib/jquery.min.js"></script><!-- jQuery -->
-	<script src="<?php echo $_['SITE_URL']; ?>js/javascript.js"></script><!-- Custom javascript -->
+	<script src="<?php echo $_['SITE_URL']; ?>js/lib/angular.min.js"></script><!-- Angular -->
+	<script src="<?php echo $_['SITE_URL']; ?>js/lib/angular-sanitize.min.js"></script><!-- Angular Sanitize -->
+	<script src="<?php echo $_['SITE_URL']; ?>js/javascript.js"></script><!-- Javascript -->
+	<script src="<?php echo $_['SITE_URL']; ?>js/carousel.js"></script><!-- Carousel -->
 </head>
 <body>
 <?php

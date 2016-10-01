@@ -105,39 +105,7 @@
 	</div>
 
 	<?php if($p[0]=='home'){ // Show carousel if on home page ?>	
-	<div id="carousel">
-		<div class="left-arrow text-center"><a href="#"><i class="fa fa-angle-left fa-lg fw" aria-hidden="true"></i></a></div>
-		<div class="right-arrow text-center"><a href="#"><i class="fa fa-angle-right fa-lg fw" aria-hidden="true"></i></a></div>
-		<div class="tabs">
-			<a href="#" data-tab="1"></a>
-			<a href="#" data-tab="2"></a>
-			<a href="#" data-tab="3"></a>
-			<a href="#" data-tab="4"></a>
-		</div>
-		
-		<div class="content text-left" data-tab="1">
-			<span><strong>Shop</strong> til you <strong>drop!</strong></span><br>
-			<span><i><strong>Hundreds</strong> of shirts in stock!</i></span>
-		</div>
-		
-		<div class="content text-center" data-tab="2">
-			<span><strong>Summer Collection!</strong></span><br>
-			<span><i>All T-Shirts made with <strong>100%</strong> cotton.</i></span>
-		</div>
-		
-		<div class="content text-right" data-tab="3">
-			<span><strong>Fantastic, Great Stuff!</strong></span><br>
-			<span>Everything is <strong>high</strong> quality.</span><br>
-			<span><strong>Guaranteed.</strong></span><br>
-		</div>
-		
-		<div class="content text-center" data-tab="4">
-			<span><strong>Jeans Jubilee!</strong></span><br>
-			<span>Take <strong>20% off</strong> all jeans.</span><br>
-			<span><i>Limited Time Only!</i></span>
-		</div>
-		
-	</div>
+	<carousel></carousel>
 	<?php } else { // Show shopping info if not home page ?>
 	<div id="nav-info">
 		<ul>
