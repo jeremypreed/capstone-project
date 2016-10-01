@@ -1,0 +1,28 @@
+*
+	margin: 0
+	padding: 0
+	font-family: $sourcesans
+	font-weight: 400
+		
+#recommended
+	padding: 40px 0 40px 
+
+#msg.close
+	display: none
+@keyframes open
+	0%
+		opacity: 0
+		transform: translateY(75px)
+	50%
+		opacity: 0
+	100%
+		opacity: 1
+		transform: translateY(0)
+		
+button
+	border: solid 1px #999
+	color: #fff
+	background-color: $color5
+	&:hover
+		border: solid 1px #000
+		background-color: $color2
