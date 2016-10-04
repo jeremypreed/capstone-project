@@ -2,7 +2,6 @@
 class Cart {
 	
 	public $tax_rate = .0925, $cart = [];
-
 	function __construct($dbc){
 		# if add is set, add to cart
 		if (isset($_POST['add'])){
@@ -21,7 +20,8 @@ class Cart {
 					$this->add($dbc,$product_id,$_SESSION['id']);					
 				}
 			} else {
-				# not logged in. create cookie
+				# not logged in. added to local storage
+				alert('Added item to your cart.');
 			}
 		}
 		
@@ -34,8 +34,8 @@ class Cart {
 				# logged in. add product to db
 				$this->remove($dbc,$cart_id,$_SESSION['id']);
 			} else {
-				# not logged in. update cookie
-
+				# not logged in. removed from local storage
+				alert('Removed item from your cart.');
 			}			
 		}
 		
@@ -49,8 +49,8 @@ class Cart {
 				# logged in. add product to db
 				$this->update($dbc,$cart_id,$quantity,$_SESSION['id']);
 			} else {
-				# not logged in. update cookie
-
+				# not logged in. updated local storage
+				alert('Your cart has been updated.');
 			}			
 		}
 	}
@@ -68,7 +68,6 @@ class Cart {
 	function add($dbc,$pid,$uid){
 		$sql = "INSERT INTO cart (product_id, quantity, user_id)
 				VALUES ($pid, 1, $uid)";
-
 		if (mysqli_query($dbc,$sql)) {
 			alert('Added item to your cart.');
 		} else {
@@ -80,7 +79,6 @@ class Cart {
 		$sql = 'DELETE FROM cart 
 				WHERE id = '.$cid.'
 				AND user_id = '.$uid;
-
 		if (mysqli_query($dbc,$sql)) {
 			alert('Removed item from your cart.');
 		} else {
@@ -93,14 +91,12 @@ class Cart {
 				SET quantity='.$q.'
 				WHERE id = '.$cid.'
 				AND user_id = '.$uid;
-
 		if (mysqli_query($dbc,$sql)) {
 			alert('Your cart has been updated.');
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error;
 		}		
 	}
-
 	# Fetch and name each column from row 
 	public function columns($row) {
 		$this->id = $row[0]; // Product ID
@@ -111,7 +107,7 @@ class Cart {
 	
 	public function summary($dbc){
 		$result = $this->query($dbc);
-		if (mysqli_num_rows($result)>0){
+		if ($result){
 			$i = new Inventory();
 			$this->subtotal = $this->discount_subtotal = $this->savings = $this->total_quantity = 0;
 			while ($row = mysqli_fetch_row($result)){

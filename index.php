@@ -25,6 +25,7 @@ $c = new Cart($dbc); // Create Cart Object. C is short for Cart
 	<script src="<?php echo $_['SITE_URL']; ?>js/lib/angular-sanitize.min.js"></script><!-- Angular Sanitize -->
 	<script src="<?php echo $_['SITE_URL']; ?>js/javascript.js"></script><!-- Javascript -->
 	<script src="<?php echo $_['SITE_URL']; ?>js/carousel.js"></script><!-- Carousel -->
+	<script src="<?php echo $_['SITE_URL']; ?>js/cart.js"></script><!-- Cart -->
 </head>
 <body>
 <?php
