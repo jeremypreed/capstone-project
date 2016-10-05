@@ -17,16 +17,16 @@
 		</div>
 		<div class="col-md-6 col-xs-8 cart-desc">
 			<h4>{{product.name}}</h4>
-			<p>{{product.color + ', ' + product.size}}</p>
+			<p>{{product.size + ', ' + product.color}}</p>
 		</div>
 		<div class="col-md-2 col-xs-4 cart-items text-center">
 				<button ng-click="product.quantity=(product.quantity-1);" class="update">&minus;</button>
 				<input type="number" ng-model="product.quantity" class="update"/>
 				<button ng-click="product.quantity=(product.quantity+1);" class="update">&plus;</button>
 				
-				<button type="submit" class="update" ng-click="cart.updateCartItem($index,product.quantity);" ng-hide="product.quantity==quantity">Update</button><br>
+				<button type="submit" class="update" ng-click="cart.updateProduct($index,product.quantity);" ng-hide="product.quantity==quantity">Update</button><br>
 				
-				<button type="submit" class="btn btn-link remove" ng-click="cart.removeCartItem($index);">
+				<button type="submit" class="btn btn-link remove" ng-click="cart.removeProduct($index);">
 					<i class="fa fa-remove fw"></i> Remove
 				</button>
 			<form method="post" action="#"></form>
@@ -64,9 +64,10 @@
 		<div class="row cart text-right">
 			<div class="col-md-7"></div>
 			<div class="col-md-5 subtotal">
-				<?php 
-				echo '$'.cash($c->discount_subtotal).'<br>';
-				echo '<span class="small">You save $'.cash($c->savings).' on '.$c->total_quantity.' item(s)</span>'; ?>
+				{{ '$' + cart.subtotal }}<br>
+				<span class="small">
+					{{ 'You save $' + cart.savings + ' on ' + cart.quantity + ' item(s)' }}
+				</span>
 			</div>
 		</div>
 		
