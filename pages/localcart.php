@@ -21,10 +21,10 @@
 		</div>
 		<div class="col-md-2 col-xs-4 cart-items text-center">
 				<button ng-click="product.quantity=(product.quantity-1);" class="update">&minus;</button>
-				<input type="text" ng-model="product.quantity" name="quantity" class="update"/>
+				<input type="number" ng-model="product.quantity" class="update"/>
 				<button ng-click="product.quantity=(product.quantity+1);" class="update">&plus;</button>
 				
-				<button type="submit" class="update" ng-click="cart.updateCartItem($index,product.quantity);" ng-hide="">Update</button><br>
+				<button type="submit" class="update" ng-click="cart.updateCartItem($index,product.quantity);" ng-hide="product.quantity==quantity">Update</button><br>
 				
 				<button type="submit" class="btn btn-link remove" ng-click="cart.removeCartItem($index);">
 					<i class="fa fa-remove fw"></i> Remove
@@ -32,7 +32,22 @@
 			<form method="post" action="#"></form>
 		</div>
 		<div class="col-md-2 col-xs-8 cart-price text-right">
-			<span class="price">{{ '$' + product.discount_price * product.quantity }}</span>
+			<span class="small" ng-hide="product.quantity==1">
+				{{ '$' + product.discount_price + ' &times; ' + product.quantity }}<br>
+			</span>
+			<span class="price" ng-show="product.price==product.discount_price">
+				{{ '$' + product.price * product.quantity }}
+			</span>
+			<span class="discount" ng-hide="product.price==product.discount_price">
+				{{ '$' + product.price * product.quantity }}
+			</span>
+			<span class="price-red" ng-hide="product.price==product.discount_price">
+				{{ '$' + product.discount_price * product.quantity }}
+			</span>
+			<span class="small" ng-hide="product.amount_off==0">
+				<br>{{ product.percent_off + ' Off' }}
+				<br>{{ 'You save $' + product.amount_off * product.quantity }}
+			</span>
 		</div>
 	</div>
 	
