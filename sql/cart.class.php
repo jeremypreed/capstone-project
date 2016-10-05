@@ -21,7 +21,7 @@ class Cart {
 				}
 			} else {
 				# not logged in. added to local storage
-				alert('Added item to your cart.');
+				alert('Your cart has been updated.');
 			}
 		}
 		
@@ -35,7 +35,7 @@ class Cart {
 				$this->remove($dbc,$cart_id,$_SESSION['id']);
 			} else {
 				# not logged in. removed from local storage
-				alert('Removed item from your cart.');
+				alert('Your cart has been updated.');
 			}			
 		}
 		
