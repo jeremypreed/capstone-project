@@ -33,20 +33,20 @@
 		</div>
 		<div class="col-md-2 col-xs-8 cart-price text-right">
 			<span class="small" ng-hide="product.quantity==1">
-				{{ '$' + product.discount_price + ' &times; ' + product.quantity }}<br>
+				{{ '$' + product.discount_price }} &times; {{ product.quantity }}<br>
 			</span>
 			<span class="price" ng-show="product.price==product.discount_price">
-				{{ '$' + product.price * product.quantity }}
+				{{ cart.cash(product.price * product.quantity) }}
 			</span>
 			<span class="discount" ng-hide="product.price==product.discount_price">
-				{{ '$' + product.price * product.quantity }}
+				{{ cart.cash(product.price * product.quantity) }}
 			</span>
 			<span class="price-red" ng-hide="product.price==product.discount_price">
-				{{ '$' + product.discount_price * product.quantity }}
+				{{ cart.cash(product.discount_price * product.quantity) }}
 			</span>
 			<span class="small" ng-hide="product.amount_off==0">
 				<br>{{ product.percent_off + ' Off' }}
-				<br>{{ 'You save $' + product.amount_off * product.quantity }}
+				<br>{{ 'You save ' + cart.cash(product.amount_off * product.quantity) }}
 			</span>
 		</div>
 	</div>
@@ -64,9 +64,9 @@
 		<div class="row cart text-right">
 			<div class="col-md-7"></div>
 			<div class="col-md-5 subtotal">
-				{{ '$' + cart.subtotal }}<br>
+				{{ cart.cash(cart.subtotal) }}<br>
 				<span class="small">
-					{{ 'You save $' + cart.savings + ' on ' + cart.quantity + ' item(s)' }}
+					{{ 'You save ' + cart.cash(cart.savings) + ' on ' + cart.quantity + ' item(s)' }}
 				</span>
 			</div>
 		</div>

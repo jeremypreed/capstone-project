@@ -18,7 +18,11 @@ if (!localCart) {
 				return 'alt';
 			}
 		}
-
+		
+		this.cash = function(x){
+			return '$'+x.toFixed(2);
+		}
+		
 		this.addProduct = function(_product){
 			
 			var productExists = false;
