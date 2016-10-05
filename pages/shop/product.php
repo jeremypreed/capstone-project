@@ -52,7 +52,7 @@ if ($_SESSION['id']){
 <?php
 } else {
 	echo '<div ng-controller="CartController as cart">';
-	echo '<button type="submit" name="add" ng-click="cart.addCartItem('.$i->product_json.');">Add to cart</button>';
+	echo '<button type="submit" name="add" ng-click="cart.addProduct('.$i->product_json.');">Add to cart</button>';
 	echo '</div>';
 }
 ?>
