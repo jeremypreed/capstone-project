@@ -8,8 +8,34 @@
 			<div class="col-md-9 main-content">	
 				<div class="container-fluid">
 					<h2>Shopping Cart</h2>
-	
+
 <?php
+
+if ($_SESSION['id']) { ?>					
+<div ng-controller="CartController as cart" ng-show="cart.products[0]" class="cart">
+		This computer has {{ cart.quantity }} item(s) saved and unassociated with any account.
+		<ul>
+			<li ng-repeat="product in cart.products track by $index" class="local-cart-item">
+				<a ng-href="{{ '<?php $_['SITE_URL']; ?>shop/' + product.category + '/' + product.subcategory + '/' + product.id }}">
+					<img ng-src="{{ '<?php $_['SITE_URL']; ?>' + product.image}}" width="75px" height="auto">
+				</a>
+				{{ product.name }}<strong> &times; {{ product.quantity }}</strong>
+			</li>
+		</ul>
+		
+		<div class="sync">
+			<form method="POST" action="#">
+			Would you like to sync the previous item(s) to your account?
+			<span class="options">
+				<input type="hidden" name="localcart" ng-value="cart.json" />
+				<button type="submit" name="sync">Yes. Sync with my account.</button>
+				<button onClick="localStorage.clear();" >No. Remove from my computer.</button>
+			</span>
+			</form>
+		</div>
+</div>
+<?php
+}
 $result = $c->query($dbc);
 $cartx = 0;
 if ($result) {
@@ -42,20 +68,7 @@ if ($result) {
 	<div class="col-md-2 col-xs-4 cart-items text-center">
 		<form method="post" action="#">
 			<input type="hidden" name="cart_id" value="<?php echo $c->id; ?>" />
-			<select name="quantity">
-<?php
-		for ($x=1;$x<11;$x++){
-			switch($x){
-				case $c->quantity:
-					echo '<option value="'.$x.'" selected>'.$x.'</option>';
-					break;
-				default:
-					echo '<option value="'.$x.'">'.$x.'</option>';
-					break;
-			}
-		}
-?>
-			</select>
+			<input type="number" name="quantity" value="<?php echo $c->quantity; ?>" min="1" max="99" class="update-field" />
 			<button type="submit" name="update" value="Update" class="update">Update</button><br>
 			<button type="submit" name="remove" value="Remove" class="btn btn-link remove" /><i class="fa fa-remove fw"></i> Remove</button>
 		</form>
@@ -73,7 +86,7 @@ if ($result) {
 ?>
 	</div>
 </div>
-<?php	}
+<?php	} 
 	if ($c->total_quantity) {
 $c->summary($dbc);
 # total / checkout ?>

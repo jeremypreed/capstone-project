@@ -53,6 +53,32 @@ class Cart {
 				alert('Your cart has been updated.');
 			}			
 		}
+		
+		# if sync is set, sync localcart with account
+		if (isset($_POST['sync'])){
+			$localcart = json_decode($_POST['localcart']);
+			
+			#make sure user is logged in
+			if ($_SESSION[id]){
+				foreach ($localcart->products as $product){
+					# check if product already in cart
+					$result = $this->checkCart($dbc, $product->id, $_SESSION['id']);
+					$row = mysqli_fetch_row($result);
+					if ($row[1]==$product->id){
+						# already in cart. update quantity
+						$this->update($dbc,$row[0],$row[2]+$product->quantity,$_SESSION['id']);
+					} else {
+						# not in cart. add product to db
+						$this->add($dbc,$product->id,$_SESSION['id'],$product->quantity);					
+					}					
+				}
+				echo '<script type="text/javascript">localStorage.clear();</script>';
+				alert('Your cart has been updated.');
+			} else {
+				# not logged in.
+				error('Cannot access account.');
+			}
+		}
 	}
 	
 	function query($dbc){ 
@@ -65,9 +91,9 @@ class Cart {
 		return mysqli_query($dbc,$sql);		
 	}
 	
-	function add($dbc,$pid,$uid){
+	function add($dbc,$pid,$uid,$q=1){
 		$sql = "INSERT INTO cart (product_id, quantity, user_id)
-				VALUES ($pid, 1, $uid)";
+				VALUES ($pid, $q, $uid)";
 		if (mysqli_query($dbc,$sql)) {
 			alert('Added item to your cart.');
 		} else {
