@@ -122,7 +122,7 @@ class Inventory {
 			'category' => $this->category,
 			'subcategory' => $this->subcategory,
 			'name' => $this->name,
-			'description' => $this->description,
+			'description' => substr($this->description, 0, 50).'...',
 			'size' => $this->size,
 			'color' => $this->color,
 			'price' => $this->price,
