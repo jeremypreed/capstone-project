@@ -10,17 +10,12 @@ if (!localCart) {
 	
 	app.controller('CartController',function(){
 		this.products = localCart.products;
-		this.subtotal = 0;
-		this.savings = 0;
+		this.json = JSON.stringify(localCart);
 		
 		this.alternate = function(x){
 			if (x % 2 !== 0) {
 				return 'alt';
 			}
-		}
-		
-		this.cash = function(x){
-			return '$'+x.toFixed(2);
 		}
 		
 		this.addProduct = function(_product){
@@ -48,9 +43,11 @@ if (!localCart) {
 		}
 		
 		this.updateProduct = function(_index, _quantity){
-			localCart.products[_index].quantity = _quantity;
-			localStorage.setItem('cart', JSON.stringify(localCart));
-			this.update();
+			if (_quantity>0&&Number.isInteger(_quantity)){
+				localCart.products[_index].quantity = _quantity;
+				localStorage.setItem('cart', JSON.stringify(localCart));
+				this.update();
+			}
 		}
 
 		this.removeProduct = function(_index){
