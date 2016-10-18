@@ -10,10 +10,9 @@
 					<h2>Shopping Cart</h2>
 
 <?php
-
 if ($_SESSION['id']) { ?>					
 <div ng-controller="CartController as cart" ng-show="cart.products[0]" class="cart">
-		This computer has {{ cart.quantity }} item(s) saved and unassociated with any account.
+		This computer has {{ cart.quantity }} item(s) saved, but not associated with any account.
 		<ul>
 			<li ng-repeat="product in cart.products track by $index" class="local-cart-item">
 				<a ng-href="{{ '<?php $_['SITE_URL']; ?>shop/' + product.category + '/' + product.subcategory + '/' + product.id }}">
@@ -37,7 +36,6 @@ if ($_SESSION['id']) { ?>
 <?php
 }
 $result = $c->query($dbc);
-$cartx = 0;
 if ($result) {
 	if ($c->total_quantity){?>
 	
@@ -52,10 +50,8 @@ if ($result) {
 		$c->columns($row);
 		$product_result = $i->query($dbc,-1, -1, $c->product_id); // Query DB for row
 		$i->columns(mysqli_fetch_row($product_result)); // Fetch Column
-		if ($cartx%2==0){$alt='';}else{$alt='alt';}
-		$cartx++;
 # Display Cart Item ?>
-<div class="row cart <?php echo $alt; ?>">
+<div class="row cart alt">
 	<div class="col-md-2 col-xs-4 cart-img text-center">
 		<a href="<?php echo $_['SITE_URL'].'shop/'.$i->category.'/'.$i->subcategory.'/'.$i->id; ?>">
 			<img src="<?php echo $_['SITE_URL'].$i->image; ?>">
