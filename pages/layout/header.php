@@ -48,9 +48,11 @@
 						<li class="cart">
 							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo '<strong>'.$c->total_quantity.' item(s)</strong>'; ?></a>
 						</li>
+						<?php if ($c->savings>0){?>
 						<li class="cart">
 							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart"><?php echo 'You save <strong>$'.$c->savings.'</strong>'; ?></a>
 						</li>
+						<?php } ?>
 						<li class="checkout-logout">
 							<a href="<?php echo $_['SITE_URL']; ?>checkout">
 							<i class="fa fa-angle-right fa-lg fw"></i> &nbsp; Checkout</a>
@@ -60,6 +62,31 @@
 							<a href="#">Your cart is empty</a>
 						</li><?php
 						} ?>
+					</ul>
+					<?php } else { // Menu to show if not logged in ?>
+					<ul class="menu" ng-controller="CartController as cart">
+						<li class="cart empty" ng-show="cart.quantity==0">
+							<a href="#">Your cart is empty</a>
+						</li>
+						<li class="cart" ng-hide="cart.quantity==0">
+							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart">
+								<strong>Total: {{ cart.subtotal | currency }}</strong>
+							</a>
+						</li>
+						<li class="cart" ng-hide="cart.quantity==0">
+							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart">
+								<strong>{{ cart.quantity }} item(s)</strong>
+							</a>
+						</li>
+						<li class="cart" ng-hide="cart.savings==0">
+							<a href="<?php echo $_['SITE_URL']; ?>cart" class="cart">
+								You save <strong>{{ cart.savings | currency }}</strong>
+							</a>
+						</li>
+						<li class="checkout-logout" ng-hide="cart.quantity==0">
+							<a href="<?php echo $_['SITE_URL']; ?>checkout">
+							<i class="fa fa-angle-right fa-lg fw"></i> &nbsp; Checkout</a>
+						</li>
 					</ul>
 					<?php } ?>
 				</li>
@@ -110,11 +137,20 @@
 	<div id="nav-info">
 		<ul>
 			<li><?php echo mysqli_num_rows($i->query($dbc)).' products'; ?></li>
-			<?php 
-			if ($c->total_quantity) {
-				echo '<li><strong>Total:</strong> $'.cash($c->discount_subtotal).'</li>';
+			<?php
+			if ($_SESSION['id']){
+				if ($c->total_quantity) {
+					echo '<li><strong>Total:</strong> $'.cash($c->discount_subtotal).'</li>';
+				} else {
+					echo '<li>Your cart is empty.</li>';
+				}
 			} else {
-				echo '<li>Your cart is empty.</li>';
+			?>
+			<li ng-controller="CartController as cart">
+				<span ng-hide="cart.quantity==0"><strong>Total:</strong> {{ cart.subtotal | currency }}</span>
+				<span ng-show="cart.quantity==0">Your cart is empty.</span>
+			</li>
+			<?php
 			}
 			// If logged in show users name. If not, show guest.
 			if ($_SESSION['id']){ echo "<li>".$_SESSION['first_name']." ".$_SESSION['last_name']."</li>"; } else { echo "<li>Guest</li>"; } ?>
