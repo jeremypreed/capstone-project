@@ -15,23 +15,24 @@ $c = new Cart($dbc); // Create Cart Object. C is short for Cart
 	<meta charset="UTF-8">
 	<title><?php echo $_['SITE_TITLE'].' / '.ucfirst($p[0]); ?></title>
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<script src="https://use.fontawesome.com/84aba4ed8a.js"></script> <!-- Font Awesome -->
 	<link rel="stylesheet" href="<?php echo $_['SITE_URL']; ?>css/style.css" /><!-- Custom stylesheet -->
-	<link rel="stylesheet" href="<?php echo $_['SITE_URL']; ?>css/bootstrap.min.css" /><!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Raleway:200italic,400,400italic,700,900' rel='stylesheet' type='text/css'><!-- Google Font Raleway -->
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,200' rel='stylesheet' type='text/css'><!-- Google Font Source Sans -->
-	<script src="https://use.fontawesome.com/84aba4ed8a.js"></script> <!-- Font Awesome -->
 	<script src="<?php echo $_['SITE_URL']; ?>js/lib/jquery.min.js"></script><!-- jQuery -->
 	<script src="<?php echo $_['SITE_URL']; ?>js/lib/angular.min.js"></script><!-- Angular -->
 	<script src="<?php echo $_['SITE_URL']; ?>js/lib/angular-sanitize.min.js"></script><!-- Angular Sanitize -->
-	<script src="<?php echo $_['SITE_URL']; ?>js/javascript.js"></script><!-- Javascript -->
+	<script src="<?php echo $_['SITE_URL']; ?>js/main.js"></script><!-- Javascript -->
 	<script src="<?php echo $_['SITE_URL']; ?>js/carousel.js"></script><!-- Carousel -->
+	<script src="<?php echo $_['SITE_URL']; ?>js/cart.js"></script><!-- Cart -->
 </head>
 <body>
 <?php
 # Header
 include_once('pages/layout/header.php');
 # Shopping Content
-if ($p[0]=='home') {	include_once('pages/home.php'); } // Home 
+if ($p[0]=='home') { include_once('pages/home.php'); } // Home 
 else if ($p[0]=='search') { include_once('pages/shop/search.php'); } // Search
 else if ($p[0]=='shop') { include_once('pages/shop.php'); } // Shop
 else if ($p[0]=='cart') { include_once('pages/cart.php'); } // Shopping Cart

@@ -2,7 +2,6 @@
 class Cart {
 	
 	public $tax_rate = .0925, $cart = [];
-
 	function __construct($dbc){
 		# if add is set, add to cart
 		if (isset($_POST['add'])){
@@ -21,7 +20,8 @@ class Cart {
 					$this->add($dbc,$product_id,$_SESSION['id']);					
 				}
 			} else {
-				# not logged in. create cookie
+				# not logged in. added to local storage
+				alert('Your cart has been updated.');
 			}
 		}
 		
@@ -34,8 +34,8 @@ class Cart {
 				# logged in. add product to db
 				$this->remove($dbc,$cart_id,$_SESSION['id']);
 			} else {
-				# not logged in. update cookie
-
+				# not logged in. removed from local storage
+				alert('Your cart has been updated.');
 			}			
 		}
 		
@@ -49,9 +49,35 @@ class Cart {
 				# logged in. add product to db
 				$this->update($dbc,$cart_id,$quantity,$_SESSION['id']);
 			} else {
-				# not logged in. update cookie
-
+				# not logged in. updated local storage
+				alert('Your cart has been updated.');
 			}			
+		}
+		
+		# if sync is set, sync localcart with account
+		if (isset($_POST['sync'])){
+			$localcart = json_decode($_POST['localcart']);
+			
+			#make sure user is logged in
+			if ($_SESSION[id]){
+				foreach ($localcart->products as $product){
+					# check if product already in cart
+					$result = $this->checkCart($dbc, $product->id, $_SESSION['id']);
+					$row = mysqli_fetch_row($result);
+					if ($row[1]==$product->id){
+						# already in cart. update quantity
+						$this->update($dbc,$row[0],$row[2]+$product->quantity,$_SESSION['id']);
+					} else {
+						# not in cart. add product to db
+						$this->add($dbc,$product->id,$_SESSION['id'],$product->quantity);					
+					}					
+				}
+				echo '<script type="text/javascript">localStorage.clear();</script>';
+				alert('Your cart has been updated.');
+			} else {
+				# not logged in.
+				error('Cannot access account.');
+			}
 		}
 	}
 	
@@ -65,10 +91,9 @@ class Cart {
 		return mysqli_query($dbc,$sql);		
 	}
 	
-	function add($dbc,$pid,$uid){
+	function add($dbc,$pid,$uid,$q=1){
 		$sql = "INSERT INTO cart (product_id, quantity, user_id)
-				VALUES ($pid, 1, $uid)";
-
+				VALUES ($pid, $q, $uid)";
 		if (mysqli_query($dbc,$sql)) {
 			alert('Added item to your cart.');
 		} else {
@@ -80,7 +105,6 @@ class Cart {
 		$sql = 'DELETE FROM cart 
 				WHERE id = '.$cid.'
 				AND user_id = '.$uid;
-
 		if (mysqli_query($dbc,$sql)) {
 			alert('Removed item from your cart.');
 		} else {
@@ -93,14 +117,12 @@ class Cart {
 				SET quantity='.$q.'
 				WHERE id = '.$cid.'
 				AND user_id = '.$uid;
-
 		if (mysqli_query($dbc,$sql)) {
 			alert('Your cart has been updated.');
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error;
 		}		
 	}
-
 	# Fetch and name each column from row 
 	public function columns($row) {
 		$this->id = $row[0]; // Product ID
@@ -111,7 +133,7 @@ class Cart {
 	
 	public function summary($dbc){
 		$result = $this->query($dbc);
-		if (mysqli_num_rows($result)>0){
+		if ($result){
 			$i = new Inventory();
 			$this->subtotal = $this->discount_subtotal = $this->savings = $this->total_quantity = 0;
 			while ($row = mysqli_fetch_row($result)){

@@ -44,16 +44,24 @@ else {
 					</div>
 					<form method="post" action="#">
 						<input type="hidden" name="product_id" value="<?php echo $i->id; ?>" />
-						<?php
-						if ($_SESSION['id']){
-						?>
-						<button type="submit" name="add">Add to cart</button>
-						<button>Add to wishlist</button>
-						<?php
-						} else {
-							echo $MSG['LOGIN'].$MSG['LOGIN_TOADD'];
-						}
-						?>
+<?php
+if ($_SESSION['id']){
+?>
+	<button type="submit" name="add">Add to cart</button>
+	<?php
+	$result = $c->checkCart($dbc, $i->id, $_SESSION['id']);
+	if (mysqli_num_rows($result)>0){
+		$row = mysqli_fetch_row($result);
+		echo '<button disabled> Cart &times; '.$row[2].' </button>';
+	}
+} else { ?>
+	<div ng-controller="CartController as cart">
+		<button type="submit" name="add" ng-click="cart.addProduct(<?php echo $i->product_json; ?>);">Add to cart</button>
+		<button disabled ng-repeat="product in cart.products track by $index" ng-show="product.id==<?php echo $i->id; ?>"> Cart &times; {{ product.quantity }} </button>
+	</div>
+<?php
+}
+?>
 					</form>
 				</div>
 			</div>

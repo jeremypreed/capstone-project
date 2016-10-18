@@ -1,6 +1,4 @@
 (function(){
-	var app = angular.module('cw',['ngSanitize']);
-	
 	app.directive('carousel', function(){
 		return {
 			restrict: 'E',

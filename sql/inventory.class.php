@@ -114,5 +114,25 @@ class Inventory {
 		$this->percent_off = round($this->discount * 100).'%'; // Percentage off
 		$this->discount_price = cash($this->price-($this->price*$this->discount)); // Price /w discount
 		$this->amount_off = cash($this->price-$this->discount_price); // Amount off
+		
+		//if (!$this->product_object) { $this->product_object = json_encode($this); }
+		
+		$this->product_object = (object)array(
+			'id' => $this->id,
+			'category' => $this->category,
+			'subcategory' => $this->subcategory,
+			'name' => $this->name,
+			'description' => substr($this->description, 0, 50).'...',
+			'size' => $this->size,
+			'color' => $this->color,
+			'price' => $this->price,
+			'discount' => $this->discount,
+			'image' => $this->image,
+			'percent_off' => $this->percent_off,
+			'discount_price' => $this-> discount_price,
+			'amount_off' => $this->amount_off
+		);
+		
+		$this->product_json = str_replace('"','\'',json_encode($this->product_object));
 	}
 }

@@ -1,0 +1,160 @@
+#content
+	.content-wrapper-3
+		.main-content
+			.alt
+				background-color: #fff
+				&:nth-child(odd)
+					background-color: $color5
+			.cart
+				padding: 20px 0 20px 0
+				border-radius: 3px
+				font-size: 16px
+				hr
+					border-top: solid 1px $color5
+				.cart-head
+					margin: 0 0 5px 0
+					padding: 5px
+					padding-right: 20px
+					font:
+						weight: bold
+						size: 18px
+					background-color: $color3
+					color: #fff
+					a
+						color: #fff
+				.cart-img
+					img
+						width: 75%
+						height: auto
+						border: solid 2px #000
+						&:hover
+							border: solid 2px $color2
+				.cart-desc
+					padding: 20px 0 0 0
+					h4
+						font-weight: 700
+				.cart-items
+					padding: 10px 0 0 20px
+					font-size: 18px
+					.update-field
+						width: 50px
+						height: 40px
+						text-align: center
+					input.update
+						width: 30px
+						height: 40px
+						text-align: center
+					input.update::-webkit-inner-spin-button,input.update::-webkit-outer-spin-button
+						-webkit-appearance: none
+						margin: 0 
+					button.update,select
+						height: 40px
+						padding: 4px
+					button.remove
+						margin-top: 5px
+						color: #000 !important
+						&:hover
+							text-decoration: none
+							color: $color4 !important
+				.subtotal
+					font:
+						size: 30px
+						weight: 700
+					span.small
+						font:
+							size: 18px
+							weight: 400
+				.cart-price
+					padding: 0px 20px 0 0
+					font-size: 20px
+					span.price-red
+						font-weight: 700
+						color: #e00
+					span.price
+						font-weight: 700
+					span.discount
+						margin-right: 6px
+						font:
+							weight: 400
+							style: italic
+						text-decoration: line-through
+						color: #000
+					span.small
+						font-size: 16px
+				.local-cart-item
+					position: relative
+					float: left
+					list-style-type: none
+					margin: 10px
+				.sync
+					clear: left
+					padding: 20px
+					font-weight: 600
+					background-color: $color5
+					.options
+						margin: 0 0 0 20px
+						button
+							padding: 5px
+							margin: 2px
+							border: solid 2px #000
+							border-radius: 2px
+							font-weight: 600
+				.cart-checkout
+					button
+						padding: 8px 30px
+						font:
+							size: 28px
+							weight: 700
+						//background-color: $color2
+						//border: solid 3px #000
+						//border-radius: 2px
+						//&:hover
+						//	background-color: $color4
+				.checkout
+					input
+						width: 100%
+						border: solid 0 #999
+						padding: 4px
+						text-align: center
+						color: #333
+						background-color: $color5
+						font-weight: 500
+					div
+						padding-bottom: 2px
+					.space
+						margin: 30px 0 0 0
+					.head
+						padding: 4px
+						font-size: 16px
+						font-weight: 700
+					.ship-method
+						input
+							width: 50px
+					.same_as
+						width: 50px
+					.summary
+						margin: 50px 0 20px 0
+						padding: 0
+						background-color: $color5
+						font-size: 20px
+						p
+							padding: 2px 25px
+						h2
+							padding: 8px 25px
+							margin: 0px 0px 10px 0px
+							font-size: 30px
+							font-weight: 900
+							background-color: $color3
+							color: #fff
+						.total
+							margin: 0
+							padding: 10px 25px
+							font-weight: 900px
+							background-color: #888
+							color: #fff
+				.paypal
+					margin: 30px 0
+					button
+						border: solid 0
+						&:hover
+							background-color: transparent
